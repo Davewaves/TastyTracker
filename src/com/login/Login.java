@@ -28,14 +28,14 @@ public class Login extends javax.swing.JFrame {
 
         Background = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        BtnCalcularKtC1 = new javax.swing.JButton();
+        BtnRegistro = new javax.swing.JButton();
         TxtTemperatura2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        BtnCalcularKtC2 = new javax.swing.JButton();
+        BtnIniciarSesion = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,17 +47,17 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGIN.png"))); // NOI18N
         Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 240, 70));
 
-        BtnCalcularKtC1.setBackground(new java.awt.Color(0, 0, 102));
-        BtnCalcularKtC1.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        BtnCalcularKtC1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCalcularKtC1.setText("REGISTRO");
-        BtnCalcularKtC1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnCalcularKtC1.addActionListener(new java.awt.event.ActionListener() {
+        BtnRegistro.setBackground(new java.awt.Color(0, 0, 102));
+        BtnRegistro.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        BtnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        BtnRegistro.setText("REGISTRO");
+        BtnRegistro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCalcularKtC1ActionPerformed(evt);
+                BtnRegistroActionPerformed(evt);
             }
         });
-        Background.add(BtnCalcularKtC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 120, 40));
+        Background.add(BtnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 120, 40));
 
         TxtTemperatura2.setForeground(new java.awt.Color(204, 204, 204));
         TxtTemperatura2.setText("Ingrese su usuario");
@@ -91,17 +91,17 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("USUARIO:");
         Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
-        BtnCalcularKtC2.setBackground(new java.awt.Color(0, 102, 255));
-        BtnCalcularKtC2.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        BtnCalcularKtC2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCalcularKtC2.setText("INICIAR SESION");
-        BtnCalcularKtC2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnCalcularKtC2.addActionListener(new java.awt.event.ActionListener() {
+        BtnIniciarSesion.setBackground(new java.awt.Color(0, 102, 255));
+        BtnIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        BtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        BtnIniciarSesion.setText("INICIAR SESION");
+        BtnIniciarSesion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCalcularKtC2ActionPerformed(evt);
+                BtnIniciarSesionActionPerformed(evt);
             }
         });
-        Background.add(BtnCalcularKtC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 130, 40));
+        Background.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 130, 40));
 
         jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel5.setText("Bienvenido, por favor inicie sesion:");
@@ -121,17 +121,17 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnCalcularKtC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCalcularKtC1ActionPerformed
+    private void BtnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCalcularKtC1ActionPerformed
+    }//GEN-LAST:event_BtnRegistroActionPerformed
 
     private void TxtTemperatura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTemperatura2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtTemperatura2ActionPerformed
 
-    private void BtnCalcularKtC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCalcularKtC2ActionPerformed
+    private void BtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIniciarSesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCalcularKtC2ActionPerformed
+    }//GEN-LAST:event_BtnIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +170,8 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
-    private javax.swing.JButton BtnCalcularKtC1;
-    private javax.swing.JButton BtnCalcularKtC2;
+    private javax.swing.JButton BtnIniciarSesion;
+    private javax.swing.JButton BtnRegistro;
     private javax.swing.JTextField TxtTemperatura2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
