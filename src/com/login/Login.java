@@ -57,7 +57,7 @@ public class Login extends javax.swing.JFrame {
                 BtnCalcularKtC1ActionPerformed(evt);
             }
         });
-        Background.add(BtnCalcularKtC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 130, 40));
+        Background.add(BtnCalcularKtC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 120, 40));
 
         TxtTemperatura2.setForeground(new java.awt.Color(204, 204, 204));
         TxtTemperatura2.setText("Ingrese su usuario");
