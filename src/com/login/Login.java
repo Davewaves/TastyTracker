@@ -37,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         BtnIniciarSesion = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,8 +45,8 @@ public class Login extends javax.swing.JFrame {
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/LOGIN.png"))); // NOI18N
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 240, 70));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 400PxX69.png"))); // NOI18N
+        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 200, 90));
 
         BtnRegistro.setBackground(new java.awt.Color(0, 0, 102));
         BtnRegistro.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
@@ -106,6 +107,9 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel5.setText("Bienvenido, por favor inicie sesion:");
         Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 40));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 64px.png"))); // NOI18N
+        Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,6 +183,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }
