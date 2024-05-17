@@ -46,9 +46,9 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 400PxX69.png"))); // NOI18N
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 200, 90));
+        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 60));
 
-        BtnRegistro.setBackground(new java.awt.Color(0, 0, 102));
+        BtnRegistro.setBackground(new java.awt.Color(245, 44, 44));
         BtnRegistro.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnRegistro.setForeground(new java.awt.Color(255, 255, 255));
         BtnRegistro.setText("REGISTRO");
@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame {
                 BtnRegistroActionPerformed(evt);
             }
         });
-        Background.add(BtnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 120, 40));
+        Background.add(BtnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 110, 40));
 
         TxtTemperatura2.setForeground(new java.awt.Color(204, 204, 204));
         TxtTemperatura2.setText("Ingrese su usuario");
@@ -67,32 +67,32 @@ public class Login extends javax.swing.JFrame {
                 TxtTemperatura2ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 248, 30));
+        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 248, 30));
 
         jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
         jLabel1.setText("¡Olvide mi contraseña!");
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 130, 40));
+        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 130, 40));
 
         jPasswordField1.setText("jPasswordField1");
-        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 250, 30));
+        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 250, 30));
 
         jCheckBox1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(0, 102, 255));
+        jCheckBox1.setForeground(new java.awt.Color(0, 51, 102));
         jCheckBox1.setText("Guardar mis datos");
-        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("CONTRASEÑA:");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("USUARIO:");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        BtnIniciarSesion.setBackground(new java.awt.Color(0, 102, 255));
+        BtnIniciarSesion.setBackground(new java.awt.Color(255, 102, 0));
         BtnIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         BtnIniciarSesion.setText("INICIAR SESION");
@@ -102,14 +102,16 @@ public class Login extends javax.swing.JFrame {
                 BtnIniciarSesionActionPerformed(evt);
             }
         });
-        Background.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 130, 40));
+        Background.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 130, 40));
 
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 51));
         jLabel5.setText("Bienvenido, por favor inicie sesion:");
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 40));
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 200, 40));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 64px.png"))); // NOI18N
-        Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 100.png"))); // NOI18N
+        Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
