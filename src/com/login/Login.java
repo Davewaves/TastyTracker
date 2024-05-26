@@ -4,6 +4,9 @@
  */
 package com.login;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Davewaves
@@ -29,14 +32,14 @@ public class Login extends javax.swing.JFrame {
         Background = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         BtnRegistro = new javax.swing.JButton();
-        TxtTemperatura2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        TxtUsuario = new javax.swing.JTextField();
+        jLabelOlvideContraseña = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelContraseña = new javax.swing.JLabel();
+        jLabelUsuario = new javax.swing.JLabel();
         BtnIniciarSesion = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelBienvenido = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,19 +63,19 @@ public class Login extends javax.swing.JFrame {
         });
         Background.add(BtnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 110, 40));
 
-        TxtTemperatura2.setForeground(new java.awt.Color(204, 204, 204));
-        TxtTemperatura2.setText("Ingrese su usuario");
-        TxtTemperatura2.addActionListener(new java.awt.event.ActionListener() {
+        TxtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        TxtUsuario.setText("Ingrese su usuario");
+        TxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTemperatura2ActionPerformed(evt);
+                TxtUsuarioActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 248, 30));
+        Background.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 248, 30));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel1.setText("¡Olvide mi contraseña!");
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 130, 40));
+        jLabelOlvideContraseña.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabelOlvideContraseña.setForeground(new java.awt.Color(0, 51, 102));
+        jLabelOlvideContraseña.setText("¡Olvide mi contraseña!");
+        Background.add(jLabelOlvideContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 130, 40));
 
         jPasswordField1.setText("jPasswordField1");
         Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 250, 30));
@@ -82,15 +85,15 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1.setText("Guardar mis datos");
         Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel3.setText("CONTRASEÑA:");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jLabelContraseña.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabelContraseña.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelContraseña.setText("CONTRASEÑA:");
+        Background.add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel4.setText("USUARIO:");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jLabelUsuario.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabelUsuario.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelUsuario.setText("USUARIO:");
+        Background.add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         BtnIniciarSesion.setBackground(new java.awt.Color(255, 102, 0));
         BtnIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
@@ -104,11 +107,11 @@ public class Login extends javax.swing.JFrame {
         });
         Background.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 130, 40));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel5.setText("Bienvenido, por favor inicie sesion:");
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 200, 40));
+        jLabelBienvenido.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelBienvenido.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabelBienvenido.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelBienvenido.setText("Bienvenido, por favor inicie sesion:");
+        Background.add(jLabelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 200, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 100.png"))); // NOI18N
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
@@ -117,7 +120,9 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,15 +133,46 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistroActionPerformed
-        // TODO add your handling code here:
+        //Boton de Registro
+        com.register.Register register = new com.register.Register();
+        register.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnRegistroActionPerformed
 
-    private void TxtTemperatura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTemperatura2ActionPerformed
+    private void TxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTemperatura2ActionPerformed
+    }//GEN-LAST:event_TxtUsuarioActionPerformed
 
     private void BtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        //boton iniciar sesion        
+        //boton iniciar sesion
+        ArrayList<String> users = new ArrayList<>(); // Crear un ArrayList de usuarios
+        ArrayList<String> passwords = new ArrayList<>(); // Crear un ArrayList de contraseñas
+       
+        //usuarios de prueba
+        users.add("Kate");
+        passwords.add("1234");
+        users.add("David");
+        passwords.add("4321");
+        
+        //obtiene valor de los campos
+        String user = TxtUsuario.getText();
+        String password = new String(jPasswordField1.getPassword());
+        
+        // busca el indice del valor de user si no existe devuelve -1
+        int userIndex = users.indexOf(user);
+        
+        //verifica el nombre de usraio exista y si es asi verifica que la contraseña sea la misma
+        if (userIndex != -1 && password.equals(passwords.get(userIndex))) {
+            //inicio de sesion
+            com.crear_reseña.Reseña reseña = new com.crear_reseña.Reseña();
+            
+            reseña.setVisible(true);
+            this.setVisible(false);
+        } else {
+            //mensaje de error
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnIniciarSesionActionPerformed
 
     /**
@@ -178,14 +214,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel Background;
     private javax.swing.JButton BtnIniciarSesion;
     private javax.swing.JButton BtnRegistro;
-    private javax.swing.JTextField TxtTemperatura2;
+    private javax.swing.JTextField TxtUsuario;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelBienvenido;
+    private javax.swing.JLabel jLabelContraseña;
+    private javax.swing.JLabel jLabelOlvideContraseña;
+    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }

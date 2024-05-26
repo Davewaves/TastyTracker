@@ -36,16 +36,15 @@ public class Register extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         TxtTemperatura3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
         TxtTemperatura4 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel12 = new javax.swing.JLabel();
+        BtnCrearCuenta1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,32 +62,32 @@ public class Register extends javax.swing.JFrame {
                 TxtTemperatura2ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 248, 20));
+        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 248, 30));
 
         jPasswordField1.setText("jPasswordField1");
-        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 250, 20));
+        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 250, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("CONTRASEÑA:");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("CORREO ELECTRÓNICO");
         Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
-        BtnCrearCuenta.setBackground(new java.awt.Color(0, 153, 102));
+        BtnCrearCuenta.setBackground(new java.awt.Color(255, 102, 51));
         BtnCrearCuenta.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCrearCuenta.setText("CREAR CUENTA");
+        BtnCrearCuenta.setText("ATRAS");
         BtnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCrearCuentaActionPerformed(evt);
             }
         });
-        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 110, 30));
+        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 110, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 130Px.png"))); // NOI18N
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 130, -1));
@@ -100,20 +99,12 @@ public class Register extends javax.swing.JFrame {
                 TxtTemperatura3ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 248, -1));
+        Background.add(TxtTemperatura3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 248, 30));
 
         jLabel7.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("FECHA DE NACIMIENTO:");
-        Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
-
-        jPasswordField2.setText("jPasswordField1");
-        Background.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 250, 20));
-
-        jLabel8.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("CONFIRMAR CONTRASEÑA:");
-        Background.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
 
         TxtTemperatura4.setForeground(new java.awt.Color(204, 204, 204));
         TxtTemperatura4.setText("Ingrese su nombre");
@@ -122,16 +113,16 @@ public class Register extends javax.swing.JFrame {
                 TxtTemperatura4ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 248, 20));
+        Background.add(TxtTemperatura4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 248, 30));
 
         jLabel9.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("INGRESE UN USUARIO:");
-        Background.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        Background.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "No Binario", "Otro" }));
         jComboBox1.setToolTipText("Prueba");
-        Background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, 20));
+        Background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, 20));
 
         jCheckBox1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(0, 102, 204));
@@ -141,7 +132,7 @@ public class Register extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 230, 20));
+        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 230, 20));
 
         jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -151,13 +142,23 @@ public class Register extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("SELECCIONE SU GENERO:");
-        Background.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        jToggleButton1.setText("jToggleButton1");
-        Background.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, 20));
+        Background.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 20));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 50.png"))); // NOI18N
         Background.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+
+        BtnCrearCuenta1.setBackground(new java.awt.Color(0, 153, 102));
+        BtnCrearCuenta1.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        BtnCrearCuenta1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCrearCuenta1.setText("CREAR CUENTA");
+        BtnCrearCuenta1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnCrearCuenta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCrearCuenta1ActionPerformed(evt);
+            }
+        });
+        Background.add(BtnCrearCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 110, 30));
+        Background.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,7 +168,7 @@ public class Register extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
 
         pack();
@@ -192,6 +193,10 @@ public class Register extends javax.swing.JFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void BtnCrearCuenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuenta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCrearCuenta1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,11 +236,13 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
     private javax.swing.JButton BtnCrearCuenta;
+    private javax.swing.JButton BtnCrearCuenta1;
     private javax.swing.JTextField TxtTemperatura2;
     private javax.swing.JTextField TxtTemperatura3;
     private javax.swing.JTextField TxtTemperatura4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -244,10 +251,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
