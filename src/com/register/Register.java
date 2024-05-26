@@ -62,20 +62,20 @@ public class Register extends javax.swing.JFrame {
                 TxtTemperatura2ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 248, 30));
+        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 270, 30));
 
         jPasswordField1.setText("jPasswordField1");
-        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 250, 30));
+        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 270, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("CONTRASEÑA:");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("CORREO ELECTRÓNICO");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         BtnCrearCuenta.setBackground(new java.awt.Color(255, 102, 51));
         BtnCrearCuenta.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
@@ -99,12 +99,12 @@ public class Register extends javax.swing.JFrame {
                 TxtTemperatura3ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 248, 30));
+        Background.add(TxtTemperatura3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 270, 30));
 
         jLabel7.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("FECHA DE NACIMIENTO:");
-        Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
+        Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         TxtTemperatura4.setForeground(new java.awt.Color(204, 204, 204));
         TxtTemperatura4.setText("Ingrese su nombre");
@@ -113,7 +113,7 @@ public class Register extends javax.swing.JFrame {
                 TxtTemperatura4ActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 248, 30));
+        Background.add(TxtTemperatura4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 270, 30));
 
         jLabel9.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
@@ -122,7 +122,7 @@ public class Register extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "No Binario", "Otro" }));
         jComboBox1.setToolTipText("Prueba");
-        Background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, 20));
+        Background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 110, 30));
 
         jCheckBox1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(0, 102, 204));
@@ -132,7 +132,7 @@ public class Register extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 230, 20));
+        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 230, 20));
 
         jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -142,7 +142,7 @@ public class Register extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("SELECCIONE SU GENERO:");
-        Background.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 20));
+        Background.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 50.png"))); // NOI18N
         Background.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
@@ -158,7 +158,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         Background.add(BtnCrearCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 110, 30));
-        Background.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, -1));
+        Background.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

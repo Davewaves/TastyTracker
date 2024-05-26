@@ -33,11 +33,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         BtnRegistro = new javax.swing.JButton();
         TxtUsuario = new javax.swing.JTextField();
-        jLabelOlvideContraseña = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jLabelContraseña = new javax.swing.JLabel();
-        jLabelUsuario = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         BtnIniciarSesion = new javax.swing.JButton();
         jLabelBienvenido = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -72,10 +72,10 @@ public class Login extends javax.swing.JFrame {
         });
         Background.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 248, 30));
 
-        jLabelOlvideContraseña.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabelOlvideContraseña.setForeground(new java.awt.Color(0, 51, 102));
-        jLabelOlvideContraseña.setText("¡Olvide mi contraseña!");
-        Background.add(jLabelOlvideContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 130, 40));
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel1.setText("¡Olvide mi contraseña!");
+        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 130, 40));
 
         jPasswordField1.setText("jPasswordField1");
         Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 250, 30));
@@ -85,15 +85,15 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1.setText("Guardar mis datos");
         Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
-        jLabelContraseña.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabelContraseña.setForeground(new java.awt.Color(255, 102, 0));
-        jLabelContraseña.setText("CONTRASEÑA:");
-        Background.add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel3.setText("CONTRASEÑA:");
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
-        jLabelUsuario.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabelUsuario.setForeground(new java.awt.Color(255, 102, 0));
-        jLabelUsuario.setText("USUARIO:");
-        Background.add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel4.setText("USUARIO:");
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         BtnIniciarSesion.setBackground(new java.awt.Color(255, 102, 0));
         BtnIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
@@ -216,12 +216,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton BtnRegistro;
     private javax.swing.JTextField TxtUsuario;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelBienvenido;
-    private javax.swing.JLabel jLabelContraseña;
-    private javax.swing.JLabel jLabelOlvideContraseña;
-    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }
