@@ -187,21 +187,23 @@ public class Eventos extends javax.swing.JFrame {
         BtnMenu.setBackground(new java.awt.Color(51, 0, 0));
         BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateral32px.png"))); // NOI18N
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Menu32Px.png"))); // NOI18N
         BtnMenu.setBorder(null);
         BtnMenu.setBorderPainted(false);
+        BtnMenu.setContentAreaFilled(false);
         BtnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtnMenu.setFocusPainted(false);
+        BtnMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         BtnMenu.setIconTextGap(2);
-        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateralSelected32px.png"))); // NOI18N
-        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateralSelected32px.png"))); // NOI18N
+        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
         BtnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMenuActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+        jPanel2.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 450));
 

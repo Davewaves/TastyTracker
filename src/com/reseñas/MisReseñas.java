@@ -4,8 +4,17 @@
  */
 package com.reseñas;
 
+import com.crear_reseña.Menu;
+import java.awt.Color;
+import static java.awt.image.ImageObserver.WIDTH;
 import java.time.LocalTime;
 import java.util.Date;
+import javaswingdev.drawer.Drawer;
+import javaswingdev.drawer.DrawerController;
+import javaswingdev.drawer.DrawerItem;
+import javaswingdev.drawer.EventDrawer;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,30 +23,92 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MisReseñas extends javax.swing.JFrame {
 
+    private DrawerController drawer;
     DefaultTableModel mt = new DefaultTableModel();
-    
+
     private String Nombre;
     private String Servicio;
     private Date FechaSeleccionada;
     private int Calificacion = 0;
     private String Reseña;
-    
-    
+
     public MisReseñas() {
         initComponents();
         String titulosTabla[] = {"Fecha", "Restaurante", "Servicio", "Calificación", "Reseña"};
         mt.setColumnIdentifiers(titulosTabla);
         jTableDatos.setModel(mt);
         
+        // MENU DESPLEGABLE
+        drawer = Drawer.newDrawer(this)
+                .header(new Menu())
+                .drawerWidth(150)
+                .headerHeight(40)
+                .background(Color.black)
+                .drawerBackground(new Color(255, 255, 255))
+                .space(3)
+                .addChild(new DrawerItem("Crear Reseña").icon(new ImageIcon(getClass().getResource("/com/images/botones/mas24px.png"))).build())
+                .addChild(new DrawerItem("Mis Reseñas").icon(new ImageIcon(getClass().getResource("/com/images/botones/misreseñas24Px.png"))).build())
+                .addChild(new DrawerItem("Eventos").icon(new ImageIcon(getClass().getResource("/com/images/botones/noticias24px.png"))).build())
+                .addFooter(new DrawerItem("Cerrar Sesión").icon(new ImageIcon(getClass().getResource("/com/images/botones/salir32px.png"))).build())
+                .event(new EventDrawer() {
+                    @Override
+                    public void selected(int index, DrawerItem item) {
+                        if (drawer.isShow()) {
+                            drawer.hide();
+                        }
+
+                        switch (index) {
+                            case 0: // Primer elemento seleccionado
+                                abrirReseña();
+                                break;
+                            case 1: // Segundo elemento seleccionado
+                                abrirMisReseñas();
+                                break;
+                            case 2: // Tercer elemento seleccionado
+                                abrirEventos();
+                                break;
+                            case 3: // Tercer elemento seleccionado
+                                cerrarSesion();
+                                break;
+                        }
+
+                    }
+
+                })
+                .build();
+
     }
-    
+     private void abrirReseña() {
+        com.crear_reseña.Reseña reseña = new com.crear_reseña.Reseña();
+        reseña.setVisible(true);
+        this.setVisible(false);
+    }
+
+    private void abrirMisReseñas() {
+        
+        if (drawer.isShow()) {
+            drawer.hide();
+        }
+    }
+
+    private void abrirEventos() {
+        com.noticias.Eventos noticias = new com.noticias.Eventos();
+        noticias.setVisible(true);
+        this.setVisible(false);
+    }
+
+    private void cerrarSesion() {
+        JOptionPane.showMessageDialog(null, "Sesión Finalizada", "Salida", JOptionPane.INFORMATION_MESSAGE);
+        System.exit(WIDTH);
+    }
+
     public void setDatos(Date FechaSeleccionada, String Nombre, String Servicio, int Calificacion, String Reseña) {
         this.FechaSeleccionada = FechaSeleccionada;
         this.Nombre = Nombre;
-        this.Servicio = Servicio;        
+        this.Servicio = Servicio;
         this.Calificacion = Calificacion;
         this.Reseña = Reseña;
-        mt.addRow(new Object[]{FechaSeleccionada,Nombre, Servicio, Calificacion, Reseña});
+        mt.addRow(new Object[]{FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña});
     }
 
     /**
@@ -56,6 +127,7 @@ public class MisReseñas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDatos = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        BtnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +183,28 @@ public class MisReseñas extends javax.swing.JFrame {
         jLabel3.setText("MIS RESEÑAS");
         Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
+        BtnMenu.setBackground(new java.awt.Color(0, 0, 51));
+        BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 10)); // NOI18N
+        BtnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Menu32Px.png"))); // NOI18N
+        BtnMenu.setBorder(null);
+        BtnMenu.setBorderPainted(false);
+        BtnMenu.setContentAreaFilled(false);
+        BtnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnMenu.setFocusPainted(false);
+        BtnMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnMenu.setIconTextGap(-5);
+        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        BtnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuActionPerformed(evt);
+            }
+        });
+        Background.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,6 +222,14 @@ public class MisReseñas extends javax.swing.JFrame {
     private void BtnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCrearCuentaActionPerformed
+
+    private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
+        if (drawer.isShow()) {
+            drawer.hide();
+        } else {
+            drawer.show();
+        }
+    }//GEN-LAST:event_BtnMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +270,7 @@ public class MisReseñas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
     private javax.swing.JButton BtnCrearCuenta;
+    private javax.swing.JButton BtnMenu;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;

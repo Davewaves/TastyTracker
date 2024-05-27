@@ -213,17 +213,20 @@ public class Reseña extends javax.swing.JFrame {
         jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 120, -1));
 
         BtnMenu.setBackground(new java.awt.Color(0, 0, 51));
-        BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 10)); // NOI18N
         BtnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateral32px.png"))); // NOI18N
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Menu32Px.png"))); // NOI18N
         BtnMenu.setBorder(null);
         BtnMenu.setBorderPainted(false);
+        BtnMenu.setContentAreaFilled(false);
         BtnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtnMenu.setFocusPainted(false);
-        BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        BtnMenu.setIconTextGap(2);
-        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateralSelected32px.png"))); // NOI18N
-        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateralSelected32px.png"))); // NOI18N
+        BtnMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnMenu.setIconTextGap(-5);
+        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         BtnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMenuActionPerformed(evt);
