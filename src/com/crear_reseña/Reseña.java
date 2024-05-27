@@ -1,16 +1,28 @@
 package com.crear_reseña;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
 import javaswingdev.drawer.DrawerItem;
 import javaswingdev.drawer.EventDrawer;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
 
 public class Reseña extends javax.swing.JFrame {
 
     private DrawerController drawer;
+    private int Calificacion = 0;
+    private ButtonGroup buttonGroup = new ButtonGroup();
 
     public Reseña() {
         initComponents();
@@ -23,7 +35,7 @@ public class Reseña extends javax.swing.JFrame {
                 .space(3)
                 .addChild(new DrawerItem("Crear Reseña").icon(new ImageIcon(getClass().getResource("/com/images/botones/mas24px.png"))).build())
                 .addChild(new DrawerItem("Mis Reseñas").icon(new ImageIcon(getClass().getResource("/com/images/botones/misreseñas24Px.png"))).build())
-                .addChild(new DrawerItem("Noticias").icon(new ImageIcon(getClass().getResource("/com/images/botones/noticias24Px.png"))).build())
+                .addChild(new DrawerItem("Eventos").icon(new ImageIcon(getClass().getResource("/com/images/botones/noticias24px.png"))).build())
                 .addFooter(new DrawerItem("Cerrar Sesión").icon(new ImageIcon(getClass().getResource("/com/images/botones/salir32px.png"))).build())
                 .event(new EventDrawer() {
                     @Override
@@ -40,7 +52,7 @@ public class Reseña extends javax.swing.JFrame {
                                 abrirMisReseñas();
                                 break;
                             case 2: // Tercer elemento seleccionado
-                                abrirNoticias();
+                                abrirEventos();
                                 break;
                             case 3: // Tercer elemento seleccionado
                                 cerrarSesion();
@@ -51,7 +63,32 @@ public class Reseña extends javax.swing.JFrame {
 
                 })
                 .build();
+        
+        // Configuración de los botones de calificación como JToggleButton
+        configurarBoton(BtnStar1);
+        configurarBoton(BtnStar2);
+        configurarBoton(BtnStar3);
+        configurarBoton(BtnStar4);
+        configurarBoton(BtnStar5);
 
+    }
+    
+    private void configurarBoton(JToggleButton boton) {
+        boton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Calificacion = Integer.parseInt(boton.getText());
+                if (boton.isSelected()) {
+                    // Si el botón está seleccionado, actualiza la calificación
+                    Calificacion = Integer.parseInt(boton.getText());
+                } else {
+                    // Si el botón no está seleccionado, establece la calificación en 0
+                    Calificacion = 0;
+                }
+            }
+        });
+        
+        buttonGroup.add(boton);
     }
 
     private void abrirReseña() {
@@ -61,21 +98,22 @@ public class Reseña extends javax.swing.JFrame {
     }
 
     private void abrirMisReseñas() {
+        com.reseñas.MisReseñas misReseñas = new com.reseñas.MisReseñas();
+        misReseñas.setVisible(true);
+        this.setVisible(false);
+    }
+
+    private void abrirEventos() {
         com.noticias.Eventos noticias = new com.noticias.Eventos();
         noticias.setVisible(true);
         this.setVisible(false);
     }
-    
-     private void abrirNoticias() {
-        com.noticias.Eventos noticias = new com.noticias.Eventos();
-        noticias.setVisible(true);
-        this.setVisible(false);
-    }
-     
-     private void cerrarSesion() {
+
+    private void cerrarSesion() {
         JOptionPane.showMessageDialog(null, "Sesión Finalizada", "Salida", JOptionPane.INFORMATION_MESSAGE);
         System.exit(WIDTH);
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -83,27 +121,26 @@ public class Reseña extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxServicio = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
+        jTextReseña = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnCancelar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser = new com.toedter.calendar.JDateChooser();
         BtnMenu = new javax.swing.JButton();
+        BtnGuardar = new javax.swing.JButton();
+        BtnStar0 = new javax.swing.JButton();
+        TxtNombre = new javax.swing.JTextField();
+        BtnStar2 = new javax.swing.JToggleButton();
+        BtnStar1 = new javax.swing.JToggleButton();
+        BtnStar3 = new javax.swing.JToggleButton();
+        BtnStar4 = new javax.swing.JToggleButton();
+        BtnStar5 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -112,120 +149,197 @@ public class Reseña extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Restaurante Elegido");
+        jLabel1.setText("TIPO DE SERVICIO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 166, -1));
+        jComboBoxServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Servicio General", "Comida", "Atención Al Cliente", "Tiempo Del Servicio" }));
+        jPanel1.add(jComboBoxServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 180, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 64px.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 260, -1));
-
-        jLabel3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Elige el restaurante");
+        jLabel3.setText("NOMBRE DEL RESTAURANTE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Reseña");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 120, -1));
+        jLabel4.setText("RESEÑA");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Fecha");
+        jLabel5.setText("FECHA:");
         jLabel5.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 jLabel5ComponentAdded(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 20));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextReseña.setColumns(20);
+        jTextReseña.setRows(5);
+        jScrollPane1.setViewportView(jTextReseña);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 260, -1));
-
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Ingresa tu nombre");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 260, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Valora tu experiencia");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        jLabel7.setText("CALIFICACIÓN:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 30));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, -1));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella.png"))); // NOI18N
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
-
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jButton1.setText("Proximos Eventos  ");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnCancelar.setBackground(new java.awt.Color(255, 51, 51));
+        BtnCancelar.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Cancelar24px.png"))); // NOI18N
+        BtnCancelar.setText("CANCELAR");
+        BtnCancelar.setBorder(null);
+        BtnCancelar.setBorderPainted(false);
+        BtnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/CancelarSelected24px.png"))); // NOI18N
+        BtnCancelar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/CancelarSelected24px.png"))); // NOI18N
+        BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
-
-        jButton2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jButton2.setText("Enviar");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        jPanel1.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 100, 40));
 
         jLabel13.setBackground(new java.awt.Color(204, 204, 255));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 400PxX69.png"))); // NOI18N
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -10, 200, 90));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 200, 110, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 190, 60));
+        jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 120, -1));
 
-        BtnMenu.setBackground(new java.awt.Color(0, 40, 121));
-        BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 9)); // NOI18N
+        BtnMenu.setBackground(new java.awt.Color(0, 0, 51));
+        BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/menu-desplegable 32px.png"))); // NOI18N
-        BtnMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateral32px.png"))); // NOI18N
+        BtnMenu.setBorder(null);
         BtnMenu.setBorderPainted(false);
+        BtnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtnMenu.setFocusPainted(false);
-        BtnMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/menu-desplegableSelectex 32px.png"))); // NOI18N
-        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/menu-desplegableSelectex 32px.png"))); // NOI18N
-        BtnMenu.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnMenu.setIconTextGap(2);
+        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateralSelected32px.png"))); // NOI18N
+        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuLateralSelected32px.png"))); // NOI18N
         BtnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMenuActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
+        jPanel1.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+
+        BtnGuardar.setBackground(new java.awt.Color(0, 204, 255));
+        BtnGuardar.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Guardar24px.png"))); // NOI18N
+        BtnGuardar.setText("GUARDAR");
+        BtnGuardar.setBorder(null);
+        BtnGuardar.setBorderPainted(false);
+        BtnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/GuardarSelected24px.png"))); // NOI18N
+        BtnGuardar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/GuardarSelected24px.png"))); // NOI18N
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 100, 40));
+
+        BtnStar0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella.png"))); // NOI18N
+        BtnStar0.setBorder(null);
+        BtnStar0.setBorderPainted(false);
+        BtnStar0.setContentAreaFilled(false);
+        BtnStar0.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella (2).png"))); // NOI18N
+        BtnStar0.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella (2).png"))); // NOI18N
+        jPanel1.add(BtnStar0, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        jPanel1.add(TxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 180, -1));
+
+        BtnStar2.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnStar2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnStar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinal24Px.png"))); // NOI18N
+        BtnStar2.setText("2");
+        BtnStar2.setBorder(null);
+        BtnStar2.setBorderPainted(false);
+        BtnStar2.setContentAreaFilled(false);
+        BtnStar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnStar2.setIconTextGap(0);
+        BtnStar2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinalSelected24Px.png"))); // NOI18N
+        BtnStar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnStar2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnStar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, -1));
+
+        BtnStar1.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnStar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnStar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinal24Px.png"))); // NOI18N
+        BtnStar1.setText("1");
+        BtnStar1.setBorder(null);
+        BtnStar1.setBorderPainted(false);
+        BtnStar1.setContentAreaFilled(false);
+        BtnStar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnStar1.setIconTextGap(0);
+        BtnStar1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinalSelected24Px.png"))); // NOI18N
+        BtnStar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnStar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnStar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
+
+        BtnStar3.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnStar3.setForeground(new java.awt.Color(255, 255, 255));
+        BtnStar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinal24Px.png"))); // NOI18N
+        BtnStar3.setText("3");
+        BtnStar3.setBorder(null);
+        BtnStar3.setBorderPainted(false);
+        BtnStar3.setContentAreaFilled(false);
+        BtnStar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnStar3.setIconTextGap(0);
+        BtnStar3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinalSelected24Px.png"))); // NOI18N
+        BtnStar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnStar3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnStar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
+
+        BtnStar4.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnStar4.setForeground(new java.awt.Color(255, 255, 255));
+        BtnStar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinal24Px.png"))); // NOI18N
+        BtnStar4.setText("4");
+        BtnStar4.setBorder(null);
+        BtnStar4.setBorderPainted(false);
+        BtnStar4.setContentAreaFilled(false);
+        BtnStar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnStar4.setIconTextGap(0);
+        BtnStar4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinalSelected24Px.png"))); // NOI18N
+        BtnStar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnStar4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnStar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
+
+        BtnStar5.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
+        BtnStar5.setForeground(new java.awt.Color(255, 255, 255));
+        BtnStar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinal24Px.png"))); // NOI18N
+        BtnStar5.setText("5");
+        BtnStar5.setBorder(null);
+        BtnStar5.setBorderPainted(false);
+        BtnStar5.setContentAreaFilled(false);
+        BtnStar5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnStar5.setIconTextGap(0);
+        BtnStar5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrellaFinalSelected24Px.png"))); // NOI18N
+        BtnStar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnStar5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnStar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,21 +355,43 @@ public class Reseña extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String Nombre = TxtNombre.getText();
+        String Servicio = (String) jComboBoxServicio.getSelectedItem();
+        Date FechaSeleccionada = jDateChooser.getDate();
+        String Reseña = jTextReseña.getText();
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        // Validar que la fecha no sea nula
+        if (FechaSeleccionada == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona una fecha válida.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        // Convertir FechaSeleccionada a LocalDateTime para la validación
+        LocalDateTime fechaSeleccion = LocalDateTime.ofInstant(FechaSeleccionada.toInstant(), ZoneId.systemDefault());
+        LocalDateTime fechaActual = LocalDateTime.now();
 
-    private void jLabel5ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jLabel5ComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5ComponentAdded
+        // Validar que la fecha seleccionada sea posterior a la fecha actual
+        if (fechaSeleccion.isBefore(fechaActual)) {
+            JOptionPane.showMessageDialog(this, "La fecha seleccionada debe ser posterior a la fecha actual.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Validar que la calificación sea mayor a 0
+        if (Calificacion == 0) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona una calificación.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //Instancia del JFRAME a buscar
+        com.reseñas.MisReseñas JframeMisReseñas = new com.reseñas.MisReseñas();
+
+        //Pasar datos obtenidos al método setDatos
+        JframeMisReseñas.setDatos(FechaSeleccionada,Nombre, Servicio,  Calificacion, Reseña);
+
+        // Hcaer visible el JFRAME
+        JframeMisReseñas.setVisible(true);
+    }//GEN-LAST:event_BtnGuardarActionPerformed
 
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
         if (drawer.isShow()) {
@@ -263,10 +399,55 @@ public class Reseña extends javax.swing.JFrame {
         } else {
             drawer.show();
         }
-
     }//GEN-LAST:event_BtnMenuActionPerformed
 
-   
+    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
+
+        int Calificacion = 0;
+        //Limpiar los modulos
+        TxtNombre.setText("");
+        jComboBoxServicio.removeAllItems();
+        jDateChooser.setDate(null);
+        Calificacion = 0;
+        jTextReseña.setText("");
+
+        // Volver a agregar las opciones necesarias al JComboBoxServicio
+        agregarOpcionesComboBoxServicio();
+
+    }//GEN-LAST:event_BtnCancelarActionPerformed
+
+    private void agregarOpcionesComboBoxServicio() {
+        // Agregar las opciones de prioridad al JComboBox
+        jComboBoxServicio.addItem("Servicio General");
+        jComboBoxServicio.addItem("Comida");
+        jComboBoxServicio.addItem("Atención Al Cliente");
+        jComboBoxServicio.addItem("Tiempo Del Servicio");
+
+    }
+    private void jLabel5ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jLabel5ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5ComponentAdded
+
+    private void BtnStar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnStar5ActionPerformed
+        Calificacion = 5;
+    }//GEN-LAST:event_BtnStar5ActionPerformed
+
+    private void BtnStar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnStar4ActionPerformed
+        Calificacion = 4;
+    }//GEN-LAST:event_BtnStar4ActionPerformed
+
+    private void BtnStar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnStar3ActionPerformed
+        Calificacion = 3;
+    }//GEN-LAST:event_BtnStar3ActionPerformed
+
+    private void BtnStar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnStar2ActionPerformed
+        Calificacion = 2;
+    }//GEN-LAST:event_BtnStar2ActionPerformed
+
+    private void BtnStar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnStar1ActionPerformed
+       Calificacion = 1;
+    }//GEN-LAST:event_BtnStar1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -300,28 +481,27 @@ public class Reseña extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCancelar;
+    private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton BtnStar0;
+    private javax.swing.JToggleButton BtnStar1;
+    private javax.swing.JToggleButton BtnStar2;
+    private javax.swing.JToggleButton BtnStar3;
+    private javax.swing.JToggleButton BtnStar4;
+    private javax.swing.JToggleButton BtnStar5;
+    private javax.swing.JTextField TxtNombre;
+    private javax.swing.JComboBox<String> jComboBoxServicio;
+    private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea jTextReseña;
     // End of variables declaration//GEN-END:variables
 }
