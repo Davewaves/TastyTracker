@@ -121,35 +121,43 @@ public class MisReseñas extends javax.swing.JFrame {
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
-        BtnCrearCuenta = new javax.swing.JButton();
+        BtnEliminar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDatos = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         BtnMenu = new javax.swing.JButton();
+        BtnBuscar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        BtnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Background.setBackground(new java.awt.Color(0, 0, 51));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnCrearCuenta.setBackground(new java.awt.Color(0, 153, 102));
-        BtnCrearCuenta.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        BtnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCrearCuenta.setText("CREAR CUENTA");
-        BtnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+        BtnEliminar.setBackground(new java.awt.Color(255, 51, 102));
+        BtnEliminar.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/EliminarConEquis24px.png"))); // NOI18N
+        BtnEliminar.setText("ELIMINAR");
+        BtnEliminar.setBorder(null);
+        BtnEliminar.setBorderPainted(false);
+        BtnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/EliminarConEquisSelected24px.png"))); // NOI18N
+        BtnEliminar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/EliminarConEquisSelected24px.png"))); // NOI18N
+        BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCrearCuentaActionPerformed(evt);
+                BtnEliminarActionPerformed(evt);
             }
         });
-        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 110, 30));
+        Background.add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 100, 40));
 
         jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("NOMBRE COMPLETO");
-        Background.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("BUSCAR POR NOMBRE:");
+        Background.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 50.png"))); // NOI18N
         Background.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
@@ -173,7 +181,7 @@ public class MisReseñas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableDatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableDatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jScrollPane1.setViewportView(jTableDatos);
 
         Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 260, 210));
@@ -181,7 +189,7 @@ public class MisReseñas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MIS RESEÑAS");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         BtnMenu.setBackground(new java.awt.Color(0, 0, 51));
         BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 10)); // NOI18N
@@ -205,6 +213,39 @@ public class MisReseñas extends javax.swing.JFrame {
         });
         Background.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 30));
 
+        BtnBuscar.setBackground(new java.awt.Color(0, 102, 153));
+        BtnBuscar.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Buscar32px.png"))); // NOI18N
+        BtnBuscar.setBorder(null);
+        BtnBuscar.setBorderPainted(false);
+        BtnBuscar.setContentAreaFilled(false);
+        BtnBuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/BuscarSelected32px.png"))); // NOI18N
+        BtnBuscar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/BuscarSelected32px.png"))); // NOI18N
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+        Background.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 40, 40));
+        Background.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 190, 30));
+
+        BtnEditar.setBackground(new java.awt.Color(0, 153, 102));
+        BtnEditar.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Editar24px.png"))); // NOI18N
+        BtnEditar.setText("EDITAR");
+        BtnEditar.setBorder(null);
+        BtnEditar.setBorderPainted(false);
+        BtnEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/EditarSelected24px.png"))); // NOI18N
+        BtnEditar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/EditarSelected24px.png"))); // NOI18N
+        BtnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEditarActionPerformed(evt);
+            }
+        });
+        Background.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 110, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,9 +260,9 @@ public class MisReseñas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuentaActionPerformed
+    private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCrearCuentaActionPerformed
+    }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
         if (drawer.isShow()) {
@@ -230,6 +271,16 @@ public class MisReseñas extends javax.swing.JFrame {
             drawer.show();
         }
     }//GEN-LAST:event_BtnMenuActionPerformed
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
+        com.editar.Editar editar = new com.editar.Editar();            
+            editar.setVisible(true);
+            this.setVisible(false);
+    }//GEN-LAST:event_BtnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,12 +320,15 @@ public class MisReseñas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
-    private javax.swing.JButton BtnCrearCuenta;
+    private javax.swing.JButton BtnBuscar;
+    private javax.swing.JButton BtnEditar;
+    private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnMenu;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDatos;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
  */
 package com.register;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Davewaves
@@ -32,7 +34,7 @@ public class Register extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        BtnCrearCuenta = new javax.swing.JButton();
+        BtnAtras = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         TxtTemperatura3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -43,7 +45,7 @@ public class Register extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        BtnCrearCuenta1 = new javax.swing.JButton();
+        BtnCrearCuenta = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,17 +79,17 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setText("CORREO ELECTRÓNICO");
         Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
-        BtnCrearCuenta.setBackground(new java.awt.Color(255, 102, 51));
-        BtnCrearCuenta.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        BtnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCrearCuenta.setText("ATRAS");
-        BtnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+        BtnAtras.setBackground(new java.awt.Color(255, 102, 51));
+        BtnAtras.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        BtnAtras.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAtras.setText("ATRAS");
+        BtnAtras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCrearCuentaActionPerformed(evt);
+                BtnAtrasActionPerformed(evt);
             }
         });
-        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 110, 30));
+        Background.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 110, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 130Px.png"))); // NOI18N
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 130, -1));
@@ -147,17 +149,17 @@ public class Register extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 50.png"))); // NOI18N
         Background.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
-        BtnCrearCuenta1.setBackground(new java.awt.Color(0, 153, 102));
-        BtnCrearCuenta1.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
-        BtnCrearCuenta1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCrearCuenta1.setText("CREAR CUENTA");
-        BtnCrearCuenta1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtnCrearCuenta1.addActionListener(new java.awt.event.ActionListener() {
+        BtnCrearCuenta.setBackground(new java.awt.Color(0, 153, 102));
+        BtnCrearCuenta.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        BtnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCrearCuenta.setText("CREAR CUENTA");
+        BtnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCrearCuenta1ActionPerformed(evt);
+                BtnCrearCuentaActionPerformed(evt);
             }
         });
-        Background.add(BtnCrearCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 110, 30));
+        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 110, 30));
         Background.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,9 +180,12 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtTemperatura2ActionPerformed
 
-    private void BtnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCrearCuentaActionPerformed
+    private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
+        //Boton Atras
+        com.login.Login login = new com.login.Login();
+        login.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtnAtrasActionPerformed
 
     private void TxtTemperatura3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTemperatura3ActionPerformed
         // TODO add your handling code here:
@@ -194,9 +199,9 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void BtnCrearCuenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuenta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCrearCuenta1ActionPerformed
+    private void BtnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuentaActionPerformed
+       JOptionPane.showMessageDialog(null, "Usario Creado Correctamente", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_BtnCrearCuentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,8 +240,8 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton BtnAtras;
     private javax.swing.JButton BtnCrearCuenta;
-    private javax.swing.JButton BtnCrearCuenta1;
     private javax.swing.JTextField TxtTemperatura2;
     private javax.swing.JTextField TxtTemperatura3;
     private javax.swing.JTextField TxtTemperatura4;

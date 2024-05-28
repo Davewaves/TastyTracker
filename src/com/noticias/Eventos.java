@@ -111,6 +111,8 @@ public class Eventos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         BtnMenu = new javax.swing.JButton();
+        BtnBuscar1 = new javax.swing.JButton();
+        BtnBuscar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,23 +133,23 @@ public class Eventos extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/240_F_698869460_QsNsNaxGNbijMMyPw1xniV1i0aXv2hDU.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 76, 254, 73));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 254, 90));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("_____________________________________");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 260, 20));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 260, 20));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("ZONA G DE BOGOTA");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 185, 120, 20));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 120, 20));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("10 de Agosto del 2024");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/240_F_753253832_RRLG2tyaOBEU7tzeHGNnUhAkRgH879rt.jpg"))); // NOI18N
         jLabel10.setText("ó");
@@ -163,12 +165,12 @@ public class Eventos extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("ZONA G DE BOGOTA");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 365, -1, 20));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("25 de Octubre del 2024");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/estrella (2).png"))); // NOI18N
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 367, -1, -1));
@@ -205,6 +207,44 @@ public class Eventos extends javax.swing.JFrame {
         });
         jPanel2.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
 
+        BtnBuscar1.setBackground(new java.awt.Color(153, 0, 0));
+        BtnBuscar1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnBuscar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfo32px.png"))); // NOI18N
+        BtnBuscar1.setText("MÁS INFO");
+        BtnBuscar1.setBorder(null);
+        BtnBuscar1.setBorderPainted(false);
+        BtnBuscar1.setContentAreaFilled(false);
+        BtnBuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnBuscar1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnBuscar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnBuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 70, 50));
+
+        BtnBuscar2.setBackground(new java.awt.Color(153, 0, 0));
+        BtnBuscar2.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnBuscar2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnBuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfo32px.png"))); // NOI18N
+        BtnBuscar2.setText("MÁS INFO");
+        BtnBuscar2.setBorder(null);
+        BtnBuscar2.setBorderPainted(false);
+        BtnBuscar2.setContentAreaFilled(false);
+        BtnBuscar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnBuscar2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnBuscar2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnBuscar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnBuscar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscar2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, 50));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 450));
 
         pack();
@@ -217,6 +257,14 @@ public class Eventos extends javax.swing.JFrame {
             drawer.show();
         }
     }//GEN-LAST:event_BtnMenuActionPerformed
+
+    private void BtnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscar1ActionPerformed
+
+    private void BtnBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBuscar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +302,8 @@ public class Eventos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBuscar1;
+    private javax.swing.JButton BtnBuscar2;
     private javax.swing.JButton BtnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
