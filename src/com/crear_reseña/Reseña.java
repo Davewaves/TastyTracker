@@ -1,10 +1,10 @@
 package com.crear_reseña;
 
+import com.crear_reseña.Menu;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -391,9 +391,11 @@ public class Reseña extends javax.swing.JFrame {
 
         //Pasar datos obtenidos al método setDatos
         JframeMisReseñas.setDatos(FechaSeleccionada,Nombre, Servicio,  Calificacion, Reseña);
-
+        
+        JOptionPane.showMessageDialog(this, "¡Reseña creada Exitosamente!", "Reseña Creada", JOptionPane.INFORMATION_MESSAGE);
+        
         // Hcaer visible el JFRAME
-        JframeMisReseñas.setVisible(true);
+        //JframeMisReseñas.setVisible(true);
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed

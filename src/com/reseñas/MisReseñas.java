@@ -37,7 +37,7 @@ public class MisReseñas extends javax.swing.JFrame {
         String titulosTabla[] = {"Fecha", "Restaurante", "Servicio", "Calificación", "Reseña"};
         mt.setColumnIdentifiers(titulosTabla);
         jTableDatos.setModel(mt);
-        
+
         // MENU DESPLEGABLE
         drawer = Drawer.newDrawer(this)
                 .header(new Menu())
@@ -78,14 +78,15 @@ public class MisReseñas extends javax.swing.JFrame {
                 .build();
 
     }
-     private void abrirReseña() {
+
+    private void abrirReseña() {
         com.crear_reseña.Reseña reseña = new com.crear_reseña.Reseña();
         reseña.setVisible(true);
         this.setVisible(false);
     }
 
     private void abrirMisReseñas() {
-        
+
         if (drawer.isShow()) {
             drawer.hide();
         }
@@ -261,7 +262,15 @@ public class MisReseñas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        // TODO add your handling code here:
+        // elimina el registro 
+        int filaSel = jTableDatos.getSelectedRow(); // Obtiene el índice de la fila seleccionada
+
+        if (filaSel != -1) { // Verifica si se ha seleccionado una fila
+            FuncionesArrayList.eliminarRegistro(filaSel); // Llama a la función para eliminar
+            mt.removeRow(filaSel); // Elimina la fila de la tabla
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
@@ -277,9 +286,9 @@ public class MisReseñas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
-        com.editar.Editar editar = new com.editar.Editar();            
-            editar.setVisible(true);
-            this.setVisible(false);
+        com.editar.Editar editar = new com.editar.Editar();
+        editar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     /**
