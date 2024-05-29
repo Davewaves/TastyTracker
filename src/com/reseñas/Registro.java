@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.reseñas;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Davewaves
  */
-public class Registro {
+public class Registro implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String Nombre;
     private String Servicio;
@@ -18,7 +20,7 @@ public class Registro {
     private String Reseña;
 
     //CONSTRUCTOR
-    public Registro(String Nombre, String Servicio, Date FechaSeleccionada, int Calificacion, String Reseña) {
+    public Registro(Date FechaSeleccionada, String Nombre, String Servicio, int Calificacion, String Reseña) {
         this.Nombre = Nombre;
         this.Servicio = Servicio;
         this.FechaSeleccionada = FechaSeleccionada;

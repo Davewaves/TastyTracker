@@ -4,7 +4,7 @@
  */
 package com.noticias;
 
-import com.crear_reseña.Menu;
+import com.reseñas.Menu;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import javaswingdev.drawer.Drawer;
@@ -63,7 +63,7 @@ public class Eventos extends javax.swing.JFrame {
     }
     
      private void abrirReseña() {
-        com.crear_reseña.Reseña reseña = new com.crear_reseña.Reseña();
+        com.reseñas.Reseña reseña = new com.reseñas.Reseña();
         reseña.setVisible(true);
         this.setVisible(false);
     }

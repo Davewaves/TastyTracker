@@ -4,11 +4,14 @@
  */
 package com.reseñas;
 
-import com.crear_reseña.Menu;
+import com.reseñas.Menu;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
 import javaswingdev.drawer.DrawerItem;
@@ -23,8 +26,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MisReseñas extends javax.swing.JFrame {
 
+    private MisReseñas misReseñasFrame;
+    private DefaultTableModel mt = new DefaultTableModel();
+    private HashMap<Integer, Integer> indiceRegistroMap = new HashMap<>(); // Mapeo de índices de fila en la tabla a índices de registro en FuncionesArrayList
     private DrawerController drawer;
-    DefaultTableModel mt = new DefaultTableModel();
 
     private String Nombre;
     private String Servicio;
@@ -32,12 +37,59 @@ public class MisReseñas extends javax.swing.JFrame {
     private int Calificacion = 0;
     private String Reseña;
 
+    // Establecer el Formato de Fecha:
+    private String formatDate(Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        return formatter.format(date);
+    }
+
+    //Método para cargar datos dentro del ArrayList
+    private void cargarDatos() {
+        ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
+        for (Registro registro : registros) {
+            String fechaFormateada = formatDate(registro.getFechaSeleccionada());
+            mt.addRow(new Object[]{
+                fechaFormateada,
+                registro.getNombre(),
+                registro.getServicio(),
+                registro.getCalificacion(),
+                registro.getReseña()
+            });
+        }
+
+    }
+
+    // ULTIMO CAMBIO
+    @Override
+    public void setVisible(boolean visible) {
+        if (visible) {
+            // Limpiar la tabla antes de recargar los datos
+            mt.setRowCount(0);
+            cargarDatos();
+        }
+        super.setVisible(visible);
+    }
+
+    // Metodo para añadir nuevas filas a la tabla
+    public void setDatos(Date FechaSeleccionada, String Nombre, String Servicio, int Calificacion, String Reseña) {
+        this.FechaSeleccionada = FechaSeleccionada;
+        this.Nombre = Nombre;
+        this.Servicio = Servicio;
+        this.Calificacion = Calificacion;
+        this.Reseña = Reseña;
+        // Se añade una nueva fila a la tabla esta nueva fila contiene los valores de los parámetros
+        mt.addRow(new Object[]{FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña});
+    }
+
+    //METODO CONSTRUCTOR
     public MisReseñas() {
         initComponents();
         String titulosTabla[] = {"Fecha", "Restaurante", "Servicio", "Calificación", "Reseña"};
         mt.setColumnIdentifiers(titulosTabla);
         jTableDatos.setModel(mt);
 
+        // Llamar a cargarDatos() aquí
+        cargarDatos();
         // MENU DESPLEGABLE
         drawer = Drawer.newDrawer(this)
                 .header(new Menu())
@@ -79,8 +131,19 @@ public class MisReseñas extends javax.swing.JFrame {
 
     }
 
+    /*private void cargarReseñasEnTabla() {
+        for (Registro registro : FuncionesArrayList.getRegistros()) {
+            mt.addRow(new Object[]{
+                registro.getFechaSeleccionada(),
+                registro.getNombre(),
+                registro.getServicio(),
+                registro.getCalificacion(),
+                registro.getReseña()
+            });
+        }
+    }*/
     private void abrirReseña() {
-        com.crear_reseña.Reseña reseña = new com.crear_reseña.Reseña();
+        com.reseñas.Reseña reseña = new com.reseñas.Reseña();
         reseña.setVisible(true);
         this.setVisible(false);
     }
@@ -90,6 +153,13 @@ public class MisReseñas extends javax.swing.JFrame {
         if (drawer.isShow()) {
             drawer.hide();
         }
+
+        if (misReseñasFrame == null) {
+            misReseñasFrame = new MisReseñas();
+        }
+        misReseñasFrame.setVisible(true);
+        this.setVisible(false); // Ocultar el frame actual si es necesario
+
     }
 
     private void abrirEventos() {
@@ -102,14 +172,10 @@ public class MisReseñas extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Sesión Finalizada", "Salida", JOptionPane.INFORMATION_MESSAGE);
         System.exit(WIDTH);
     }
-
-    public void setDatos(Date FechaSeleccionada, String Nombre, String Servicio, int Calificacion, String Reseña) {
-        this.FechaSeleccionada = FechaSeleccionada;
-        this.Nombre = Nombre;
-        this.Servicio = Servicio;
-        this.Calificacion = Calificacion;
-        this.Reseña = Reseña;
-        mt.addRow(new Object[]{FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña});
+    
+    public void actualizarReseñas() {
+        
+        cargarDatos();
     }
 
     /**
@@ -130,7 +196,7 @@ public class MisReseñas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         BtnMenu = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        TxtBusqueda = new javax.swing.JTextField();
         BtnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -182,7 +248,7 @@ public class MisReseñas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableDatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableDatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane1.setViewportView(jTableDatos);
 
         Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 260, 210));
@@ -229,7 +295,7 @@ public class MisReseñas extends javax.swing.JFrame {
             }
         });
         Background.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 40, 40));
-        Background.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 190, 30));
+        Background.add(TxtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 190, 30));
 
         BtnEditar.setBackground(new java.awt.Color(0, 153, 102));
         BtnEditar.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
@@ -262,14 +328,14 @@ public class MisReseñas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
+
         // elimina el registro 
         int filaSel = jTableDatos.getSelectedRow(); // Obtiene el índice de la fila seleccionada
-
-        if (filaSel != -1) { // Verifica si se ha seleccionado una fila
-            FuncionesArrayList.eliminarRegistro(filaSel); // Llama a la función para eliminar
-            mt.removeRow(filaSel); // Elimina la fila de la tabla
+        if (filaSel >= 0) {
+            FuncionesArrayList.eliminarRegistro(filaSel);//llama funcion para eliminar
+            mt.removeRow(filaSel);//elimina la fila de la tabla
         } else {
-            JOptionPane.showMessageDialog(this, "Por favor, selecciona un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, selecciona un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
@@ -282,13 +348,49 @@ public class MisReseñas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Registro> registro = FuncionesArrayList.getRegistros();
+        boolean encontrado = false;
+        //recorre la lista segun la busqueda
+        for (int i = 0; i < registro.size(); i++) {
+            if (registro.get(i).getNombre().equalsIgnoreCase(TxtBusqueda.getText())) {
+                encontrado = true;
+                //limpia las filas antes de agrgar un nuevo resultado
+                mt.setRowCount(0);
+
+                //agrega a la tabla los resultados encontrados
+                mt.addRow(new Object[]{
+                    registro.get(i).getFechaSeleccionada(),
+                    registro.get(i).getNombre(),
+                    registro.get(i).getServicio(),
+                    registro.get(i).getCalificacion(),
+                    registro.get(i).getReseña()
+                });
+            }
+        }
+        if (!encontrado) {
+            //mensaje de error
+            JOptionPane.showMessageDialog(null, "Titulo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
-        com.editar.Editar editar = new com.editar.Editar();
-        editar.setVisible(true);
-        this.setVisible(false);
+
+        int filaSel = jTableDatos.getSelectedRow(); //obtiene indice de fila seleccionada 
+
+        if (filaSel >= 0) {
+            ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
+        
+            Registro registroActual = FuncionesArrayList.getRegistros().get(filaSel);
+            Registro sel = registros.get(filaSel);//carga el registro segun indice de la fila seleccionada        
+            com.reseñas.Editar abrir = new com.reseñas.Editar(); //abre la pantalla de editar        
+            abrir.indice(filaSel);
+            abrir.llenarCampos(sel); //usa el metodo llenarCampos() de la clase crear llevando el indice        
+            abrir.setVisible(true);
+            this.setVisible(false);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, selecciona un registro para editar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     /**
@@ -305,16 +407,24 @@ public class MisReseñas extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MisReseñas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MisReseñas.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MisReseñas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MisReseñas.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MisReseñas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MisReseñas.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MisReseñas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MisReseñas.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -333,11 +443,11 @@ public class MisReseñas extends javax.swing.JFrame {
     private javax.swing.JButton BtnEditar;
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnMenu;
+    private javax.swing.JTextField TxtBusqueda;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDatos;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

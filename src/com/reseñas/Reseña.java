@@ -1,11 +1,10 @@
-package com.editar;
+package com.reseñas;
 
-import com.crear_reseña.*;
+import com.reseñas.Menu;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,13 +18,13 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
-public class Editar extends javax.swing.JFrame {
+public class Reseña extends javax.swing.JFrame {
 
     private DrawerController drawer;
     private int Calificacion = 0;
     private ButtonGroup buttonGroup = new ButtonGroup();
 
-    public Editar() {
+    public Reseña() {
         initComponents();
         drawer = Drawer.newDrawer(this)
                 .header(new Menu())
@@ -130,7 +129,9 @@ public class Editar extends javax.swing.JFrame {
         jTextReseña = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         BtnCancelar = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jDateChooser = new com.toedter.calendar.JDateChooser();
+        BtnMenu = new javax.swing.JButton();
         BtnGuardar = new javax.swing.JButton();
         BtnStar0 = new javax.swing.JButton();
         TxtNombre = new javax.swing.JTextField();
@@ -139,7 +140,6 @@ public class Editar extends javax.swing.JFrame {
         BtnStar3 = new javax.swing.JToggleButton();
         BtnStar4 = new javax.swing.JToggleButton();
         BtnStar5 = new javax.swing.JToggleButton();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -205,7 +205,33 @@ public class Editar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 100, 40));
+
+        jLabel13.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 400PxX69.png"))); // NOI18N
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 190, 60));
         jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 120, -1));
+
+        BtnMenu.setBackground(new java.awt.Color(0, 0, 51));
+        BtnMenu.setFont(new java.awt.Font("Roboto Black", 1, 10)); // NOI18N
+        BtnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Menu32Px.png"))); // NOI18N
+        BtnMenu.setBorder(null);
+        BtnMenu.setBorderPainted(false);
+        BtnMenu.setContentAreaFilled(false);
+        BtnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnMenu.setFocusPainted(false);
+        BtnMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnMenu.setIconTextGap(-5);
+        BtnMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MenuSelected32Px.png"))); // NOI18N
+        BtnMenu.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        BtnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         BtnGuardar.setBackground(new java.awt.Color(0, 204, 255));
         BtnGuardar.setFont(new java.awt.Font("Roboto Black", 0, 10)); // NOI18N
@@ -317,11 +343,6 @@ public class Editar extends javax.swing.JFrame {
         });
         jPanel1.add(BtnStar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("EDITAR RESEÑA");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -371,14 +392,45 @@ public class Editar extends javax.swing.JFrame {
         JframeMisReseñas.setDatos(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
 
         // Hcaer visible el JFRAME
-        JframeMisReseñas.setVisible(true);
+        //JframeMisReseñas.setVisible(true);
+        
+        ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
+        Registro registro = new Registro(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
+        FuncionesArrayList.agregarRegistro(registro);
+
+        JOptionPane.showMessageDialog(this, "¡Reseña creada Exitosamente!", "Reseña Creada", JOptionPane.INFORMATION_MESSAGE);
+
+        //Limpiar los modulos
+        TxtNombre.setText("");
+        jComboBoxServicio.removeAllItems();
+        jDateChooser.setDate(null);
+        Calificacion = 0;
+        jTextReseña.setText("");
+
+        // Volver a agregar las opciones necesarias al JComboBoxServicio
+        agregarOpcionesComboBoxServicio();
     }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
+        if (drawer.isShow()) {
+            drawer.hide();
+        } else {
+            drawer.show();
+        }
+    }//GEN-LAST:event_BtnMenuActionPerformed
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
 
-        com.reseñas.MisReseñas reseñas = new com.reseñas.MisReseñas();
-        reseñas.setVisible(true);
-        this.setVisible(false);
+        int Calificacion = 0;
+        //Limpiar los modulos
+        TxtNombre.setText("");
+        jComboBoxServicio.removeAllItems();
+        jDateChooser.setDate(null);
+        Calificacion = 0;
+        jTextReseña.setText("");
+
+        // Volver a agregar las opciones necesarias al JComboBoxServicio
+        agregarOpcionesComboBoxServicio();
 
     }//GEN-LAST:event_BtnCancelarActionPerformed
 
@@ -428,21 +480,20 @@ public class Editar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Editar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Editar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Editar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Editar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Editar().setVisible(true);
+                new Reseña().setVisible(true);
             }
         });
     }
@@ -450,6 +501,7 @@ public class Editar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnMenu;
     private javax.swing.JButton BtnStar0;
     private javax.swing.JToggleButton BtnStar1;
     private javax.swing.JToggleButton BtnStar2;
@@ -460,11 +512,11 @@ public class Editar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxServicio;
     private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

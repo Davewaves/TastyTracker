@@ -63,7 +63,6 @@ public class Login extends javax.swing.JFrame {
         });
         Background.add(BtnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 110, 40));
 
-        TxtUsuario.setForeground(new java.awt.Color(204, 204, 204));
         TxtUsuario.setText("Ingrese su usuario");
         TxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +164,7 @@ public class Login extends javax.swing.JFrame {
         //verifica el nombre de usraio exista y si es asi verifica que la contraseña sea la misma
         if (userIndex != -1 && password.equals(passwords.get(userIndex))) {
             //inicio de sesion
-            com.crear_reseña.Reseña reseña = new com.crear_reseña.Reseña();
+            com.reseñas.Reseña reseña = new com.reseñas.Reseña();
             
             reseña.setVisible(true);
             this.setVisible(false);
