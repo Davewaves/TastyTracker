@@ -84,29 +84,32 @@ public class Register extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 270, 30));
+        Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 270, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("CONTRASEÑA:");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("CORREO ELECTRÓNICO");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
-        BtnAtras.setBackground(new java.awt.Color(255, 102, 51));
+        BtnAtras.setBackground(new java.awt.Color(0, 51, 153));
         BtnAtras.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnAtras.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/AtrasSelected.png"))); // NOI18N
         BtnAtras.setText("ATRAS");
-        BtnAtras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnAtras.setBorder(null);
+        BtnAtras.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/AtrasSelected24px.png"))); // NOI18N
+        BtnAtras.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/AtrasSelected24px.png"))); // NOI18N
         BtnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAtrasActionPerformed(evt);
             }
         });
-        Background.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 110, 30));
+        Background.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 90, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 130Px.png"))); // NOI18N
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 130, -1));
@@ -116,7 +119,7 @@ public class Register extends javax.swing.JFrame {
                 TxtCorreoActionPerformed(evt);
             }
         });
-        Background.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 270, 30));
+        Background.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 270, 30));
 
         jLabel7.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
@@ -147,7 +150,7 @@ public class Register extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 230, 20));
+        Background.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 230, 20));
 
         jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -165,14 +168,17 @@ public class Register extends javax.swing.JFrame {
         BtnCrearCuenta.setBackground(new java.awt.Color(0, 153, 102));
         BtnCrearCuenta.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCrearCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Crear24px.png"))); // NOI18N
         BtnCrearCuenta.setText("CREAR CUENTA");
-        BtnCrearCuenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnCrearCuenta.setBorder(null);
+        BtnCrearCuenta.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/CrearSelected24px.png"))); // NOI18N
+        BtnCrearCuenta.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/CrearSelected24px.png"))); // NOI18N
         BtnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCrearCuentaActionPerformed(evt);
             }
         });
-        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 110, 30));
+        Background.add(BtnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 140, 40));
         Background.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

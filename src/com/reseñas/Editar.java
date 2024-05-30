@@ -155,7 +155,7 @@ public class Editar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(91, 0, 0));
         jPanel1.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -334,7 +334,7 @@ public class Editar extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         Contador.setBackground(new java.awt.Color(0, 102, 0));
-        Contador.setForeground(new java.awt.Color(255, 255, 255));
+        Contador.setForeground(new java.awt.Color(91, 0, 0));
         Contador.setText("jLabel31");
         jPanel1.add(Contador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

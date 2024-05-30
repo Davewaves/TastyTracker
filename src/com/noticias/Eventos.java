@@ -111,8 +111,9 @@ public class Eventos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         BtnMenu = new javax.swing.JButton();
-        BtnBuscar1 = new javax.swing.JButton();
-        BtnBuscar2 = new javax.swing.JButton();
+        BtnMasInfo2 = new javax.swing.JButton();
+        BtnMasInfo1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,7 +124,7 @@ public class Eventos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EVENTOS");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 13, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -207,43 +208,46 @@ public class Eventos extends javax.swing.JFrame {
         });
         jPanel2.add(BtnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
 
-        BtnBuscar1.setBackground(new java.awt.Color(153, 0, 0));
-        BtnBuscar1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        BtnBuscar1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfo32px.png"))); // NOI18N
-        BtnBuscar1.setText("MÁS INFO");
-        BtnBuscar1.setBorder(null);
-        BtnBuscar1.setBorderPainted(false);
-        BtnBuscar1.setContentAreaFilled(false);
-        BtnBuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnBuscar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
-        BtnBuscar1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
-        BtnBuscar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BtnBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        BtnMasInfo2.setBackground(new java.awt.Color(153, 0, 0));
+        BtnMasInfo2.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnMasInfo2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMasInfo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfo32px.png"))); // NOI18N
+        BtnMasInfo2.setText("MÁS INFO");
+        BtnMasInfo2.setBorder(null);
+        BtnMasInfo2.setBorderPainted(false);
+        BtnMasInfo2.setContentAreaFilled(false);
+        BtnMasInfo2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnMasInfo2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnMasInfo2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnMasInfo2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnMasInfo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscar1ActionPerformed(evt);
+                BtnMasInfo2ActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 70, 50));
+        jPanel2.add(BtnMasInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 70, 50));
 
-        BtnBuscar2.setBackground(new java.awt.Color(153, 0, 0));
-        BtnBuscar2.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        BtnBuscar2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnBuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfo32px.png"))); // NOI18N
-        BtnBuscar2.setText("MÁS INFO");
-        BtnBuscar2.setBorder(null);
-        BtnBuscar2.setBorderPainted(false);
-        BtnBuscar2.setContentAreaFilled(false);
-        BtnBuscar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnBuscar2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
-        BtnBuscar2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
-        BtnBuscar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BtnBuscar2.addActionListener(new java.awt.event.ActionListener() {
+        BtnMasInfo1.setBackground(new java.awt.Color(153, 0, 0));
+        BtnMasInfo1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        BtnMasInfo1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMasInfo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfo32px.png"))); // NOI18N
+        BtnMasInfo1.setText("MÁS INFO");
+        BtnMasInfo1.setBorder(null);
+        BtnMasInfo1.setBorderPainted(false);
+        BtnMasInfo1.setContentAreaFilled(false);
+        BtnMasInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BtnMasInfo1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnMasInfo1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/MasInfoSelected32Px.png"))); // NOI18N
+        BtnMasInfo1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BtnMasInfo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscar2ActionPerformed(evt);
+                BtnMasInfo1ActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnBuscar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, 50));
+        jPanel2.add(BtnMasInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Logo 35.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 450));
 
@@ -258,13 +262,14 @@ public class Eventos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnMenuActionPerformed
 
-    private void BtnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscar1ActionPerformed
+    private void BtnMasInfo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMasInfo2ActionPerformed
+        JOptionPane.showMessageDialog(null, "El evento \"Super Gbazzar\" es una feria gastronómica \nque reúne a diversos vendedores de comida en \nun espacio común, ofreciendo una amplia variedad de\nplatos y productos gastronómicos para que los asistentes \npuedan disfrutar y conocer diferentes sabores y \npropuestas culinarias." );
+    
+    }//GEN-LAST:event_BtnMasInfo2ActionPerformed
 
-    private void BtnBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBuscar2ActionPerformed
+    private void BtnMasInfo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMasInfo1ActionPerformed
+        JOptionPane.showMessageDialog(null, "El \"Burger Master\" es un evento anual que destaca \nlas mejores hamburguesas del mundo, presentando \ncreaciones innovadoras de chefs de todo el mundo." );
+    }//GEN-LAST:event_BtnMasInfo1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,8 +307,8 @@ public class Eventos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnBuscar1;
-    private javax.swing.JButton BtnBuscar2;
+    private javax.swing.JButton BtnMasInfo1;
+    private javax.swing.JButton BtnMasInfo2;
     private javax.swing.JButton BtnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -313,6 +318,7 @@ public class Eventos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

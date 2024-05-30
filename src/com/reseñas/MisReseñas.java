@@ -46,17 +46,25 @@ public class MisReseñas extends javax.swing.JFrame {
     //Método para cargar datos dentro del ArrayList
     private void cargarDatos() {
         ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
-        for (Registro registro : registros) {
+        for (int i = 0; i < registros.size(); i++) {
+            Registro registro = registros.get(i);
             String fechaFormateada = formatDate(registro.getFechaSeleccionada());
             mt.addRow(new Object[]{
                 fechaFormateada,
                 registro.getNombre(),
                 registro.getServicio(),
                 registro.getCalificacion(),
-                registro.getReseña()
+                registro.getReseña(),
+                i // Agrega el índice real como última columna
             });
         }
 
+    }
+
+    // Método para recargar toda la tabla
+    private void recargarTabla() {
+        mt.setRowCount(0); // Limpiar la tabla
+        cargarDatos(); // Cargar datos nuevamente
     }
 
     // ULTIMO CAMBIO
@@ -84,7 +92,7 @@ public class MisReseñas extends javax.swing.JFrame {
     //METODO CONSTRUCTOR
     public MisReseñas() {
         initComponents();
-        String titulosTabla[] = {"Fecha", "Restaurante", "Servicio", "Calificación", "Reseña"};
+        String titulosTabla[] = {"Fecha", "Restaurante", "Servicio", "Calificación", "Reseña", "Índice"};
         mt.setColumnIdentifiers(titulosTabla);
         jTableDatos.setModel(mt);
 
@@ -172,9 +180,9 @@ public class MisReseñas extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Sesión Finalizada", "Salida", JOptionPane.INFORMATION_MESSAGE);
         System.exit(WIDTH);
     }
-    
+
     public void actualizarReseñas() {
-        
+
         cargarDatos();
     }
 
@@ -329,13 +337,14 @@ public class MisReseñas extends javax.swing.JFrame {
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
 
-        // elimina el registro 
-        int filaSel = jTableDatos.getSelectedRow(); // Obtiene el índice de la fila seleccionada
-        if (filaSel >= 0) {
-            FuncionesArrayList.eliminarRegistro(filaSel);//llama funcion para eliminar
-            mt.removeRow(filaSel);//elimina la fila de la tabla
+        int selectedRow = jTableDatos.getSelectedRow();
+        if (selectedRow >= 0) {
+            int registroIndex = (int) jTableDatos.getValueAt(selectedRow, 5); // Obtener el índice real del registro
+            FuncionesArrayList.eliminarRegistro(registroIndex);
+            mt.setRowCount(0); // Limpiar la tabla antes de cargar los datos
+            cargarDatos(); // Actualizar la tabla después de eliminar
         } else {
-            JOptionPane.showMessageDialog(null, "Por favor, selecciona un registro para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor seleccione una fila para eliminar.");
         }
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
@@ -350,44 +359,36 @@ public class MisReseñas extends javax.swing.JFrame {
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         ArrayList<Registro> registro = FuncionesArrayList.getRegistros();
         boolean encontrado = false;
-        //recorre la lista segun la busqueda
+        mt.setRowCount(0); // Limpia la tabla antes de agregar nuevos resultados
         for (int i = 0; i < registro.size(); i++) {
             if (registro.get(i).getNombre().equalsIgnoreCase(TxtBusqueda.getText())) {
                 encontrado = true;
-                //limpia las filas antes de agrgar un nuevo resultado
-                mt.setRowCount(0);
-
-                //agrega a la tabla los resultados encontrados
                 mt.addRow(new Object[]{
-                    registro.get(i).getFechaSeleccionada(),
+                    formatDate(registro.get(i).getFechaSeleccionada()),
                     registro.get(i).getNombre(),
                     registro.get(i).getServicio(),
                     registro.get(i).getCalificacion(),
-                    registro.get(i).getReseña()
+                    registro.get(i).getReseña(),
+                    i // Agrega el índice real como última columna
                 });
             }
         }
         if (!encontrado) {
-            //mensaje de error
             JOptionPane.showMessageDialog(null, "Titulo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
 
-        int filaSel = jTableDatos.getSelectedRow(); //obtiene indice de fila seleccionada 
-
+        int filaSel = jTableDatos.getSelectedRow(); // Obtiene el índice de la fila seleccionada
         if (filaSel >= 0) {
-            ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
-        
-            Registro registroActual = FuncionesArrayList.getRegistros().get(filaSel);
-            Registro sel = registros.get(filaSel);//carga el registro segun indice de la fila seleccionada        
-            com.reseñas.Editar abrir = new com.reseñas.Editar(); //abre la pantalla de editar        
-            abrir.indice(filaSel);
-            abrir.llenarCampos(sel); //usa el metodo llenarCampos() de la clase crear llevando el indice        
+            int indiceReal = (int) mt.getValueAt(filaSel, 5); // Obtiene el índice real del registro
+            Registro sel = FuncionesArrayList.getRegistros().get(indiceReal); // Obtiene el registro real
+            com.reseñas.Editar abrir = new com.reseñas.Editar(); // Abre la pantalla de editar
+            abrir.indice(indiceReal);
+            abrir.llenarCampos(sel); // Usa el método llenarCampos() de la clase crear llevando el índice real
             abrir.setVisible(true);
             this.setVisible(false);
-
         } else {
             JOptionPane.showMessageDialog(null, "Por favor, selecciona un registro para editar", "Error", JOptionPane.ERROR_MESSAGE);
         }
