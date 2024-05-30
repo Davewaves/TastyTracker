@@ -1,25 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.login;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Davewaves
- */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    private static ArrayList<String> users = new ArrayList<>();
+    private static ArrayList<String> passwords = new ArrayList<>();
+    
     public Login() {
         initComponents();
     }
 
+    public static void addUser(String user, String password) {
+        users.add(user);
+        passwords.add(password);
+    }
+    
+    public static ArrayList<String> getUsers() {
+        return users;
+    }
+
+    public static ArrayList<String> getPasswords() {
+        return passwords;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,8 +59,12 @@ public class Login extends javax.swing.JFrame {
         BtnRegistro.setBackground(new java.awt.Color(245, 44, 44));
         BtnRegistro.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        BtnRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Registro24px.png"))); // NOI18N
         BtnRegistro.setText("REGISTRO");
-        BtnRegistro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnRegistro.setBorder(null);
+        BtnRegistro.setIconTextGap(2);
+        BtnRegistro.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/RegistroSelected24px.png"))); // NOI18N
+        BtnRegistro.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/RegistroSelected24px.png"))); // NOI18N
         BtnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRegistroActionPerformed(evt);
@@ -94,17 +103,23 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("USUARIO:");
         Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        BtnIniciarSesion.setBackground(new java.awt.Color(255, 102, 0));
+        BtnIniciarSesion.setBackground(new java.awt.Color(0, 204, 102));
         BtnIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
         BtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        BtnIniciarSesion.setText("INICIAR SESION");
-        BtnIniciarSesion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/Inicio24px.png"))); // NOI18N
+        BtnIniciarSesion.setText("INICIO SESION");
+        BtnIniciarSesion.setBorder(null);
+        BtnIniciarSesion.setHideActionText(true);
+        BtnIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnIniciarSesion.setIconTextGap(0);
+        BtnIniciarSesion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/InicioSelected24px.png"))); // NOI18N
+        BtnIniciarSesion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/botones/InicioSelected24px.png"))); // NOI18N
         BtnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIniciarSesionActionPerformed(evt);
             }
         });
-        Background.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 130, 40));
+        Background.add(BtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, 40));
 
         jLabelBienvenido.setBackground(new java.awt.Color(0, 0, 0));
         jLabelBienvenido.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
@@ -143,7 +158,31 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtUsuarioActionPerformed
 
     private void BtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIniciarSesionActionPerformed
-        //boton iniciar sesion        
+        
+        // Obtener los datos de las listas estáticas
+    ArrayList<String> users = com.register.Register.getUsers();
+    ArrayList<String> passwords = com.register.Register.getPasswords();
+
+    // Obtener los datos de las cajas
+    String user = TxtUsuario.getText();
+    String password = new String(jPasswordField1.getPassword());
+
+    // Validación de existencia
+    int userIndex = users.indexOf(user);
+
+    if (userIndex != -1 && password.equals(passwords.get(userIndex))) {
+        // Si existen, proceder
+        com.reseñas.Reseña reseña = new com.reseñas.Reseña();
+        reseña.setVisible(true);
+        this.setVisible(false);
+    } else {
+        // Mensaje de error
+        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+        
+        //METODO MANUAL:
+
+        /*//boton iniciar sesion        
         //boton iniciar sesion
         ArrayList<String> users = new ArrayList<>(); // Crear un ArrayList de usuarios
         ArrayList<String> passwords = new ArrayList<>(); // Crear un ArrayList de contraseñas
@@ -171,7 +210,7 @@ public class Login extends javax.swing.JFrame {
         } else {
             //mensaje de error
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
     }//GEN-LAST:event_BtnIniciarSesionActionPerformed
 
     /**

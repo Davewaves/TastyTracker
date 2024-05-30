@@ -4,6 +4,7 @@
  */
 package com.register;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,10 +12,23 @@ import javax.swing.JOptionPane;
  * @author Davewaves
  */
 public class Register extends javax.swing.JFrame {
+    
+    private static ArrayList<String> users = new ArrayList<>();
+    private static ArrayList<String> passwords = new ArrayList<>();
 
-    /**
-     * Creates new form Register
-     */
+    public static void addUser(String user, String password) {
+        users.add(user);
+        passwords.add(password);
+    }
+
+    public static ArrayList<String> getUsers() {
+        return users;
+    }
+
+    public static ArrayList<String> getPasswords() {
+        return passwords;
+    }
+    
     public Register() {
         initComponents();
     }
@@ -30,15 +44,15 @@ public class Register extends javax.swing.JFrame {
 
         Background = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        TxtTemperatura2 = new javax.swing.JTextField();
+        TxtNombreCompleto = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         BtnAtras = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        TxtTemperatura3 = new javax.swing.JTextField();
+        TxtCorreo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TxtTemperatura4 = new javax.swing.JTextField();
+        TxtUsuario = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -57,16 +71,19 @@ public class Register extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/REGISTRO 200PX.png"))); // NOI18N
         Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 70));
 
-        TxtTemperatura2.setForeground(new java.awt.Color(204, 204, 204));
-        TxtTemperatura2.setText("Ingrese su nombre");
-        TxtTemperatura2.addActionListener(new java.awt.event.ActionListener() {
+        TxtNombreCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTemperatura2ActionPerformed(evt);
+                TxtNombreCompletoActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 270, 30));
+        Background.add(TxtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 270, 30));
 
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
         Background.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 270, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
@@ -94,28 +111,24 @@ public class Register extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/ISOLOGO 130Px.png"))); // NOI18N
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 130, -1));
 
-        TxtTemperatura3.setForeground(new java.awt.Color(204, 204, 204));
-        TxtTemperatura3.setText("Ingrese su usuario");
-        TxtTemperatura3.addActionListener(new java.awt.event.ActionListener() {
+        TxtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTemperatura3ActionPerformed(evt);
+                TxtCorreoActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 270, 30));
+        Background.add(TxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 270, 30));
 
         jLabel7.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("FECHA DE NACIMIENTO:");
         Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
-        TxtTemperatura4.setForeground(new java.awt.Color(204, 204, 204));
-        TxtTemperatura4.setText("Ingrese su nombre");
-        TxtTemperatura4.addActionListener(new java.awt.event.ActionListener() {
+        TxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTemperatura4ActionPerformed(evt);
+                TxtUsuarioActionPerformed(evt);
             }
         });
-        Background.add(TxtTemperatura4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 270, 30));
+        Background.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 270, 30));
 
         jLabel9.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
@@ -176,9 +189,9 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtTemperatura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTemperatura2ActionPerformed
+    private void TxtNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTemperatura2ActionPerformed
+    }//GEN-LAST:event_TxtNombreCompletoActionPerformed
 
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
         //Boton Atras
@@ -187,21 +200,37 @@ public class Register extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtnAtrasActionPerformed
 
-    private void TxtTemperatura3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTemperatura3ActionPerformed
+    private void TxtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTemperatura3ActionPerformed
+    }//GEN-LAST:event_TxtCorreoActionPerformed
 
-    private void TxtTemperatura4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTemperatura4ActionPerformed
+    private void TxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTemperatura4ActionPerformed
+    }//GEN-LAST:event_TxtUsuarioActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void BtnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuentaActionPerformed
-       JOptionPane.showMessageDialog(null, "Usario Creado Correctamente", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+        String user = TxtUsuario.getText();
+    String password = new String(jPasswordField1.getPassword());
+
+    if (!user.isEmpty() && !password.isEmpty()) {
+        addUser(user, password); // Usar el método estático para agregar usuario y contraseña
+        JOptionPane.showMessageDialog(null, "Usuario Creado Correctamente", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+
+        com.login.Login login = new com.login.Login();
+        login.setVisible(true);
+        this.setVisible(false);
+    } else {
+        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+    }    
     }//GEN-LAST:event_BtnCrearCuentaActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,9 +271,9 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel Background;
     private javax.swing.JButton BtnAtras;
     private javax.swing.JButton BtnCrearCuenta;
-    private javax.swing.JTextField TxtTemperatura2;
-    private javax.swing.JTextField TxtTemperatura3;
-    private javax.swing.JTextField TxtTemperatura4;
+    private javax.swing.JTextField TxtCorreo;
+    private javax.swing.JTextField TxtNombreCompleto;
+    private javax.swing.JTextField TxtUsuario;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;

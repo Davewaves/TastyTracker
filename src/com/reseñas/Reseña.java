@@ -2,6 +2,8 @@ package com.reseñas;
 
 import com.reseñas.Menu;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
@@ -17,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
+import javax.swing.SwingConstants;
 
 public class Reseña extends javax.swing.JFrame {
 
@@ -65,27 +68,30 @@ public class Reseña extends javax.swing.JFrame {
                 .build();
 
         // Configuración de los botones de calificación como JToggleButton
-        configurarBoton(BtnStar1);
-        configurarBoton(BtnStar2);
-        configurarBoton(BtnStar3);
-        configurarBoton(BtnStar4);
-        configurarBoton(BtnStar5);
+        configurarBoton(BtnStar1, 1);
+        configurarBoton(BtnStar2, 2);
+        configurarBoton(BtnStar3, 3);
+        configurarBoton(BtnStar4, 4);
+        configurarBoton(BtnStar5, 5);
 
     }
 
-    private void configurarBoton(JToggleButton boton) {
-        boton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Calificacion = Integer.parseInt(boton.getText());
-                if (boton.isSelected()) {
-                    // Si el botón está seleccionado, actualiza la calificación
-                    Calificacion = Integer.parseInt(boton.getText());
-                } else {
-                    // Si el botón no está seleccionado, establece la calificación en 0
-                    Calificacion = 0;
-                }
-            }
+    private void configurarBoton(JToggleButton boton, int calificacion) {
+        boton.setText(String.valueOf(calificacion));
+        boton.setForeground(Color.WHITE);
+        boton.setFont(new Font("Roboto Black", Font.PLAIN, 10));
+        boton.setIcon(new ImageIcon(getClass().getResource("/com/images/estrellaFinal24Px.png")));
+        boton.setSelectedIcon(new ImageIcon(getClass().getResource("/com/images/estrellaFinalSelected24Px.png")));
+        boton.setBorder(null);
+        boton.setBorderPainted(false);
+        boton.setContentAreaFilled(false);
+        boton.setHorizontalTextPosition(SwingConstants.CENTER);
+        boton.setIconTextGap(0);
+        boton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        boton.addActionListener(e -> {
+            Calificacion = calificacion;
         });
 
         buttonGroup.add(boton);
@@ -393,7 +399,6 @@ public class Reseña extends javax.swing.JFrame {
 
         // Hcaer visible el JFRAME
         //JframeMisReseñas.setVisible(true);
-        
         ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
         Registro registro = new Registro(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
         FuncionesArrayList.agregarRegistro(registro);
@@ -406,6 +411,7 @@ public class Reseña extends javax.swing.JFrame {
         jDateChooser.setDate(null);
         Calificacion = 0;
         jTextReseña.setText("");
+        buttonGroup.clearSelection();
 
         // Volver a agregar las opciones necesarias al JComboBoxServicio
         agregarOpcionesComboBoxServicio();
@@ -421,13 +427,15 @@ public class Reseña extends javax.swing.JFrame {
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
 
-        int Calificacion = 0;
-        //Limpiar los modulos
+        // Limpiar los campos
         TxtNombre.setText("");
         jComboBoxServicio.removeAllItems();
         jDateChooser.setDate(null);
         Calificacion = 0;
         jTextReseña.setText("");
+
+        // Limpiar la selección del ButtonGroup
+        buttonGroup.clearSelection();
 
         // Volver a agregar las opciones necesarias al JComboBoxServicio
         agregarOpcionesComboBoxServicio();

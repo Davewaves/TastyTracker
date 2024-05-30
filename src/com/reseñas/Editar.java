@@ -2,6 +2,8 @@ package com.reseñas;
 
 import com.reseñas.Menu;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
@@ -74,11 +76,11 @@ public class Editar extends javax.swing.JFrame {
                 .build();
 
         // Configuración de los botones de calificación como JToggleButton
-        configurarBoton(BtnStar1);
-        configurarBoton(BtnStar2);
-        configurarBoton(BtnStar3);
-        configurarBoton(BtnStar4);
-        configurarBoton(BtnStar5);
+        configurarBoton(BtnStar1, 1);
+        configurarBoton(BtnStar2, 2);
+        configurarBoton(BtnStar3, 3);
+        configurarBoton(BtnStar4, 4);
+        configurarBoton(BtnStar5, 5);
 
     }
 
@@ -107,7 +109,7 @@ public class Editar extends javax.swing.JFrame {
     }
 
     private void abrirMisReseñas() {
-       
+
         JframeMisReseñas.setVisible(true);
         this.setVisible(false);
     }
@@ -378,28 +380,27 @@ public class Editar extends javax.swing.JFrame {
             return;
         }
 
-       
         // Pasar datos obtenidos al método setDatos
-    JframeMisReseñas.setDatos(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
-    
-    // Obtener el índice del registro a editar
-    int i = Integer.parseInt(Contador.getText());
-    
-    // Actualizar el registro en la lista de registros
-    Registro edregistro = new Registro(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
-    FuncionesArrayList.editarRegistro(edregistro, i);
-    
-    // Mostrar mensaje de éxito
-    JOptionPane.showMessageDialog(null, "Tarea actualizada con éxito", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
+        JframeMisReseñas.setDatos(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
 
-    // Actualizar los datos en MisReseñas
-    JframeMisReseñas.actualizarReseñas();
+        // Obtener el índice del registro a editar
+        int i = Integer.parseInt(Contador.getText());
 
-    // Volver a mostrar el frame MisReseñas en la misma ventana
-    JframeMisReseñas.setVisible(true);
-    
-    // Ocultar este frame de Editar
-    this.setVisible(false);
+        // Actualizar el registro en la lista de registros
+        Registro edregistro = new Registro(FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña);
+        FuncionesArrayList.editarRegistro(edregistro, i);
+
+        // Mostrar mensaje de éxito
+        JOptionPane.showMessageDialog(null, "Tarea actualizada con éxito", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
+
+        // Actualizar los datos en MisReseñas
+        JframeMisReseñas.actualizarReseñas();
+
+        // Volver a mostrar el frame MisReseñas en la misma ventana
+        JframeMisReseñas.setVisible(true);
+
+        // Ocultar este frame de Editar
+        this.setVisible(false);
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
     public void llenarCampos(Registro registro) {
@@ -411,7 +412,8 @@ public class Editar extends javax.swing.JFrame {
         jTextReseña.setText(registro.getReseña());
 
         // Actualiza la calificación seleccionando el botón correspondiente
-        switch (registro.getCalificacion()) {
+        Calificacion = registro.getCalificacion();
+        switch (Calificacion) {
             case 1:
                 BtnStar1.setSelected(true);
                 break;
@@ -430,8 +432,18 @@ public class Editar extends javax.swing.JFrame {
             default:
                 buttonGroup.clearSelection(); // Des-selecciona todos los botones si no hay una calificación válida
                 break;
-
         }
+    }
+
+    private void configurarBoton(JToggleButton boton, int calificacion) {
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Calificacion = calificacion;
+            }
+        });
+
+        buttonGroup.add(boton);
     }
 
     public void indice(int i) {
