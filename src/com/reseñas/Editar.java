@@ -24,6 +24,7 @@ import javax.swing.SwingUtilities;
 
 public class Editar extends javax.swing.JFrame {
 
+    //VARIABLES A UTILIZAR
     private Registro registro;
     private MisReseñas JframeMisReseñas;
     private int index;
@@ -56,16 +57,16 @@ public class Editar extends javax.swing.JFrame {
                         }
 
                         switch (index) {
-                            case 0: // Primer elemento seleccionado
+                            case 0: // PRIMER ELEMENTO DEL MENU
                                 abrirReseña();
                                 break;
-                            case 1: // Segundo elemento seleccionado
+                            case 1: // SEGUNDO  ELEMENTO DEL MENU
                                 abrirMisReseñas();
                                 break;
-                            case 2: // Tercer elemento seleccionado
+                            case 2: // TERCER ELEMENTO DEL MENU
                                 abrirEventos();
                                 break;
-                            case 3: // Tercer elemento seleccionado
+                            case 3: // CUARTO ELEMENTO DEL MENU
                                 cerrarSesion();
                                 break;
                         }
@@ -75,7 +76,7 @@ public class Editar extends javax.swing.JFrame {
                 })
                 .build();
 
-        // Configuración de los botones de calificación como JToggleButton
+        // BOTONES Y SU VALOR ASIGNADO DE TIPO JTOGGLEBUTTON
         configurarBoton(BtnStar1, 1);
         configurarBoton(BtnStar2, 2);
         configurarBoton(BtnStar3, 3);
@@ -84,6 +85,7 @@ public class Editar extends javax.swing.JFrame {
 
     }
 
+        // CONFIGURACION DE BOTON 
     private void configurarBoton(JToggleButton boton) {
         boton.addMouseListener(new MouseAdapter() {
             @Override
@@ -101,7 +103,8 @@ public class Editar extends javax.swing.JFrame {
 
         buttonGroup.add(boton);
     }
-
+    
+    //METODOS DEL MENU DRAWER
     private void abrirReseña() {
         if (drawer.isShow()) {
             drawer.hide();
@@ -364,11 +367,11 @@ public class Editar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, selecciona una fecha válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        // Convertir FechaSeleccionada a LocalDateTime para la validación
+        // FechaSeleccionada a LocalDateTime para la validación
         LocalDateTime fechaSeleccion = LocalDateTime.ofInstant(FechaSeleccionada.toInstant(), ZoneId.systemDefault());
         LocalDateTime fechaActual = LocalDateTime.now();
 
-        // Validar que la fecha seleccionada sea posterior a la fecha actual
+        // para que la fecha seleccionada sea posterior a la fecha actual
         if (fechaSeleccion.isBefore(fechaActual)) {
             JOptionPane.showMessageDialog(this, "La fecha seleccionada debe ser posterior a la fecha actual.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -391,15 +394,15 @@ public class Editar extends javax.swing.JFrame {
         FuncionesArrayList.editarRegistro(edregistro, i);
 
         // Mostrar mensaje de éxito
-        JOptionPane.showMessageDialog(null, "Tarea actualizada con éxito", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Reseña actualizada con éxito", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
 
-        // Actualizar los datos en MisReseñas
+        // ACTUALIZAR LOS DATOS
         JframeMisReseñas.actualizarReseñas();
 
-        // Volver a mostrar el frame MisReseñas en la misma ventana
+        // VOLVER A MOSTRAR EL FRAME
         JframeMisReseñas.setVisible(true);
 
-        // Ocultar este frame de Editar
+        // OCULTAR FRAME
         this.setVisible(false);
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
@@ -411,7 +414,7 @@ public class Editar extends javax.swing.JFrame {
         jDateChooser.setDate(registro.getFechaSeleccionada());
         jTextReseña.setText(registro.getReseña());
 
-        // Actualiza la calificación seleccionando el botón correspondiente
+        // ACTUALIZAR LA CALIFICACION
         Calificacion = registro.getCalificacion();
         switch (Calificacion) {
             case 1:

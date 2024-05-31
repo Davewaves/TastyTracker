@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
+    
+    //ARREGLOS
     private static ArrayList<String> users = new ArrayList<>();
     private static ArrayList<String> passwords = new ArrayList<>();
     
     public Login() {
         initComponents();
     }
-
+    
+    //METODOS PARA AGREGAR AL ARRAYLIST LOS CAMPOS
     public static void addUser(String user, String password) {
         users.add(user);
         passwords.add(password);
@@ -159,7 +161,7 @@ public class Login extends javax.swing.JFrame {
 
     private void BtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIniciarSesionActionPerformed
         
-        // Obtener los datos de las listas estáticas
+        // Obtener los datos de las listas
     ArrayList<String> users = com.register.Register.getUsers();
     ArrayList<String> passwords = com.register.Register.getPasswords();
 

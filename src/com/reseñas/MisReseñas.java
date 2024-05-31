@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MisReseñas extends javax.swing.JFrame {
 
+        //VARIABLES
     private MisReseñas misReseñasFrame;
     private DefaultTableModel mt = new DefaultTableModel();
     private HashMap<Integer, Integer> indiceRegistroMap = new HashMap<>(); // Mapeo de índices de fila en la tabla a índices de registro en FuncionesArrayList
@@ -37,13 +38,13 @@ public class MisReseñas extends javax.swing.JFrame {
     private int Calificacion = 0;
     private String Reseña;
 
-    // Establecer el Formato de Fecha:
+    // FORMATO DE LA FECHA EN DIAS, MES Y AÑO, SI NO SALE TODO DE CORRIDO Y SE VE FEO:
     private String formatDate(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         return formatter.format(date);
     }
 
-    //Método para cargar datos dentro del ArrayList
+    //METODO QUE CARGA DATOS AL ARRAYLIST
     private void cargarDatos() {
         ArrayList<Registro> registros = FuncionesArrayList.getRegistros();
         for (int i = 0; i < registros.size(); i++) {
@@ -61,7 +62,7 @@ public class MisReseñas extends javax.swing.JFrame {
 
     }
 
-    // Método para recargar toda la tabla
+    // REFRESCAR LA TABLA
     private void recargarTabla() {
         mt.setRowCount(0); // Limpiar la tabla
         cargarDatos(); // Cargar datos nuevamente
@@ -71,21 +72,20 @@ public class MisReseñas extends javax.swing.JFrame {
     @Override
     public void setVisible(boolean visible) {
         if (visible) {
-            // Limpiar la tabla antes de recargar los datos
             mt.setRowCount(0);
             cargarDatos();
         }
         super.setVisible(visible);
     }
 
-    // Metodo para añadir nuevas filas a la tabla
+    // AGREGAR NUEVAS FILAS Y USAR EL METODO CONSTRUCTOR
     public void setDatos(Date FechaSeleccionada, String Nombre, String Servicio, int Calificacion, String Reseña) {
         this.FechaSeleccionada = FechaSeleccionada;
         this.Nombre = Nombre;
         this.Servicio = Servicio;
         this.Calificacion = Calificacion;
         this.Reseña = Reseña;
-        // Se añade una nueva fila a la tabla esta nueva fila contiene los valores de los parámetros
+        // Se añade una nueva fila a la tabla
         mt.addRow(new Object[]{FechaSeleccionada, Nombre, Servicio, Calificacion, Reseña});
     }
 
@@ -95,9 +95,8 @@ public class MisReseñas extends javax.swing.JFrame {
         String titulosTabla[] = {"Fecha", "Restaurante", "Servicio", "Calificación", "Reseña", "Índice"};
         mt.setColumnIdentifiers(titulosTabla);
         jTableDatos.setModel(mt);
-
-        // Llamar a cargarDatos() aquí
         cargarDatos();
+        
         // MENU DESPLEGABLE
         drawer = Drawer.newDrawer(this)
                 .header(new Menu())
@@ -118,16 +117,16 @@ public class MisReseñas extends javax.swing.JFrame {
                         }
 
                         switch (index) {
-                            case 0: // Primer elemento seleccionado
+                            case 0: // PRIMER ELEMENTO
                                 abrirReseña();
                                 break;
-                            case 1: // Segundo elemento seleccionado
+                            case 1: // SEGUNDO ELEMENTO
                                 abrirMisReseñas();
                                 break;
-                            case 2: // Tercer elemento seleccionado
+                            case 2: // TERCER ELEMENTO
                                 abrirEventos();
                                 break;
-                            case 3: // Tercer elemento seleccionado
+                            case 3: // CUARTO ELEMENTO
                                 cerrarSesion();
                                 break;
                         }
@@ -139,6 +138,7 @@ public class MisReseñas extends javax.swing.JFrame {
 
     }
 
+    //METODO DE PRUEBA
     /*private void cargarReseñasEnTabla() {
         for (Registro registro : FuncionesArrayList.getRegistros()) {
             mt.addRow(new Object[]{
@@ -150,6 +150,8 @@ public class MisReseñas extends javax.swing.JFrame {
             });
         }
     }*/
+    
+    //METODOS PARA NAVEGAR EN EL MENU:
     private void abrirReseña() {
         com.reseñas.Reseña reseña = new com.reseñas.Reseña();
         reseña.setVisible(true);
@@ -339,10 +341,10 @@ public class MisReseñas extends javax.swing.JFrame {
 
         int selectedRow = jTableDatos.getSelectedRow();
         if (selectedRow >= 0) {
-            int registroIndex = (int) jTableDatos.getValueAt(selectedRow, 5); // Obtener el índice real del registro
+            int registroIndex = (int) jTableDatos.getValueAt(selectedRow, 5); // OBTENER EL INDICE
             FuncionesArrayList.eliminarRegistro(registroIndex);
-            mt.setRowCount(0); // Limpiar la tabla antes de cargar los datos
-            cargarDatos(); // Actualizar la tabla después de eliminar
+            mt.setRowCount(0); // LIMPIAR O SI NO SE DESORDENA TODO
+            cargarDatos(); // ASI ACTUALIZAMOS NUEVAMENTE LOS DATOS
         } else {
             JOptionPane.showMessageDialog(this, "Por favor seleccione una fila para eliminar.");
         }
@@ -357,9 +359,11 @@ public class MisReseñas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMenuActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        
+        
         ArrayList<Registro> registro = FuncionesArrayList.getRegistros();
         boolean encontrado = false;
-        mt.setRowCount(0); // Limpia la tabla antes de agregar nuevos resultados
+        mt.setRowCount(0); // LIMPIAR LA TABLA O SI NO SE DAÑA
         for (int i = 0; i < registro.size(); i++) {
             if (registro.get(i).getNombre().equalsIgnoreCase(TxtBusqueda.getText())) {
                 encontrado = true;
@@ -369,7 +373,7 @@ public class MisReseñas extends javax.swing.JFrame {
                     registro.get(i).getServicio(),
                     registro.get(i).getCalificacion(),
                     registro.get(i).getReseña(),
-                    i // Agrega el índice real como última columna
+                    i // AGREGAR EL INDICE
                 });
             }
         }
@@ -380,13 +384,13 @@ public class MisReseñas extends javax.swing.JFrame {
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
 
-        int filaSel = jTableDatos.getSelectedRow(); // Obtiene el índice de la fila seleccionada
+        int filaSel = jTableDatos.getSelectedRow(); // OBTIENE INDICA
         if (filaSel >= 0) {
-            int indiceReal = (int) mt.getValueAt(filaSel, 5); // Obtiene el índice real del registro
-            Registro sel = FuncionesArrayList.getRegistros().get(indiceReal); // Obtiene el registro real
-            com.reseñas.Editar abrir = new com.reseñas.Editar(); // Abre la pantalla de editar
+            int indiceReal = (int) mt.getValueAt(filaSel, 5); // OBTIENE INDICE DESPUES DE BUSCAR
+            Registro sel = FuncionesArrayList.getRegistros().get(indiceReal); // CAPTIRA EL REGISTRO
+            com.reseñas.Editar abrir = new com.reseñas.Editar(); // INSTANCIA DEL FRAME EDITAR
             abrir.indice(indiceReal);
-            abrir.llenarCampos(sel); // Usa el método llenarCampos() de la clase crear llevando el índice real
+            abrir.llenarCampos(sel); 
             abrir.setVisible(true);
             this.setVisible(false);
         } else {

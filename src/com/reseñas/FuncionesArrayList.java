@@ -17,11 +17,14 @@ import javax.swing.JOptionPane;
  * @author Davewaves
  */
 public class FuncionesArrayList {
+    
+    // ESTE FRAME CONTIENE TODOS LOS METODOS Y FUNCIONES CON LAS QUE SE AGREGAN
+    // ELIMINAN, SE CARGAN A LA TABLA LOS REGISTROS DE LOS ARRAYLIST
 
     private static final ArrayList<Registro> registros = new ArrayList<>();
     private static final String FILE_PATH = "reseñas.dat";
 
-    // Función para agregar registro
+    // FUNCION AGREGAR REGISTRO
     public static void agregarRegistro(Registro registro) {
         registros.add(registro);
         guardarRegistros();
@@ -29,7 +32,7 @@ public class FuncionesArrayList {
     
     
 
-    // Función para eliminar registro
+    // FUNCION ELIMINAR REGISTROS
     public static void eliminarRegistro(int e) {
         if (e >= 0 && e < registros.size()) {
             registros.remove(e);
@@ -39,7 +42,7 @@ public class FuncionesArrayList {
         }
     }
 
-    // Función para actualizar registro
+    // FUNCION ACTUALIZAR REGISTRO
     public static void editarRegistro(Registro registro, int e) {
         if (e >= 0 && e < registros.size()) {
             registros.set(e, registro);
@@ -50,10 +53,10 @@ public class FuncionesArrayList {
     }
 
     public static ArrayList<Registro> getRegistros() {
-        return new ArrayList<>(registros); // Devuelve una copia para evitar modificaciones directas
+        return new ArrayList<>(registros); 
     }
 
-    // Método para guardar los registros en un archivo
+    // METODO PARA GUARDAR LOS REGISTROS
     public static void guardarRegistros() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
             oos.writeObject(registros);
@@ -62,14 +65,14 @@ public class FuncionesArrayList {
         }
     }
 
-    // Método para cargar los registros desde un archivo
+    // CARGAR LOS REGISTROS
     public static void cargarRegistros() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_PATH))) {
             ArrayList<Registro> loadedRegistros = (ArrayList<Registro>) ois.readObject();
             registros.clear();
             registros.addAll(loadedRegistros);
         } catch (FileNotFoundException e) {
-            // Archivo no encontrado, no hacer nada
+            
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

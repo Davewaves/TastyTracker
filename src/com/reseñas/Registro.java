@@ -11,8 +11,13 @@ import java.util.Date;
  * @author Davewaves
  */
 public class Registro implements Serializable {
+    
+    //CON ESTA CLASE PODEMOS OBTENER LOS VALORES Y RETORNARLOS PARA
+    //INSTANCIARLOS EN LOS FRAMES DE RESEÑAS, MIS RESEÑAS Y EDITAR
     private static final long serialVersionUID = 1L;
-
+    
+    
+    //VARIABLES A UTILIZAR
     private String Nombre;
     private String Servicio;
     private Date FechaSeleccionada;

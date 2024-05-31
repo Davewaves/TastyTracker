@@ -12,10 +12,12 @@ import javax.swing.JOptionPane;
  * @author Davewaves
  */
 public class Register extends javax.swing.JFrame {
-    
+
+    //ARRAYLIST PARA GUARDAR CAMPOS DE USUARIO Y CONTRASEÑA
     private static ArrayList<String> users = new ArrayList<>();
     private static ArrayList<String> passwords = new ArrayList<>();
 
+    // METODOS PARA PASAR CAMPOS AL LOGIN
     public static void addUser(String user, String password) {
         users.add(user);
         passwords.add(password);
@@ -28,7 +30,7 @@ public class Register extends javax.swing.JFrame {
     public static ArrayList<String> getPasswords() {
         return passwords;
     }
-    
+
     public Register() {
         initComponents();
     }
@@ -219,19 +221,20 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void BtnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearCuentaActionPerformed
+        //CAPTURA DE DATOS Y ENVIO AL FRAME DE LOGIN
         String user = TxtUsuario.getText();
-    String password = new String(jPasswordField1.getPassword());
+        String password = new String(jPasswordField1.getPassword());
 
-    if (!user.isEmpty() && !password.isEmpty()) {
-        addUser(user, password); // Usar el método estático para agregar usuario y contraseña
-        JOptionPane.showMessageDialog(null, "Usuario Creado Correctamente", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+        if (!user.isEmpty() && !password.isEmpty()) {
+            addUser(user, password); // AQUI AGREGAMOS USUARIO Y CONTRASEÑA
+            JOptionPane.showMessageDialog(null, "Usuario Creado Correctamente", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
 
-        com.login.Login login = new com.login.Login();
-        login.setVisible(true);
-        this.setVisible(false);
-    } else {
-        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-    }    
+            com.login.Login login = new com.login.Login();
+            login.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnCrearCuentaActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

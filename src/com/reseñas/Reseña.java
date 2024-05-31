@@ -28,6 +28,8 @@ public class Reseña extends javax.swing.JFrame {
     private ButtonGroup buttonGroup = new ButtonGroup();
 
     public Reseña() {
+        
+        //FUNCION DEL MENU
         initComponents();
         drawer = Drawer.newDrawer(this)
                 .header(new Menu())
@@ -67,7 +69,7 @@ public class Reseña extends javax.swing.JFrame {
                 })
                 .build();
 
-        // Configuración de los botones de calificación como JToggleButton
+        // CONFIGURACION Y ASIGNACIÓN DE LOS VALORES A LAS VARIABLES
         configurarBoton(BtnStar1, 1);
         configurarBoton(BtnStar2, 2);
         configurarBoton(BtnStar3, 3);
@@ -76,6 +78,7 @@ public class Reseña extends javax.swing.JFrame {
 
     }
 
+        //METODO DEL MENU CON SUS IMAGENES
     private void configurarBoton(JToggleButton boton, int calificacion) {
         boton.setText(String.valueOf(calificacion));
         boton.setForeground(Color.WHITE);
@@ -97,6 +100,7 @@ public class Reseña extends javax.swing.JFrame {
         buttonGroup.add(boton);
     }
 
+    //METODOS PARA NAVEGACION DEL MENU
     private void abrirReseña() {
         if (drawer.isShow()) {
             drawer.hide();
@@ -370,7 +374,7 @@ public class Reseña extends javax.swing.JFrame {
         Date FechaSeleccionada = jDateChooser.getDate();
         String Reseña = jTextReseña.getText();
 
-        // Validar que la fecha no sea nula
+        // VALIDAR LA FECHA
         if (FechaSeleccionada == null) {
             JOptionPane.showMessageDialog(this, "Por favor, selecciona una fecha válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -405,7 +409,7 @@ public class Reseña extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(this, "¡Reseña creada Exitosamente!", "Reseña Creada", JOptionPane.INFORMATION_MESSAGE);
 
-        //Limpiar los modulos
+        //LIMPIAR MODULOS
         TxtNombre.setText("");
         jComboBoxServicio.removeAllItems();
         jDateChooser.setDate(null);
@@ -413,7 +417,7 @@ public class Reseña extends javax.swing.JFrame {
         jTextReseña.setText("");
         buttonGroup.clearSelection();
 
-        // Volver a agregar las opciones necesarias al JComboBoxServicio
+        // AGREGAR LAS OPCIONES NECESARIAS AL COMBOBOX
         agregarOpcionesComboBoxServicio();
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
@@ -427,23 +431,23 @@ public class Reseña extends javax.swing.JFrame {
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
 
-        // Limpiar los campos
+        // LIMPIAR DATOS
         TxtNombre.setText("");
         jComboBoxServicio.removeAllItems();
         jDateChooser.setDate(null);
         Calificacion = 0;
         jTextReseña.setText("");
 
-        // Limpiar la selección del ButtonGroup
+        // LIMPIAR BOTONES
         buttonGroup.clearSelection();
 
-        // Volver a agregar las opciones necesarias al JComboBoxServicio
+        // VOLVER A AGREGAR OPCIONES
         agregarOpcionesComboBoxServicio();
 
     }//GEN-LAST:event_BtnCancelarActionPerformed
 
     private void agregarOpcionesComboBoxServicio() {
-        // Agregar las opciones de prioridad al JComboBox
+        // AGREGAR OPCIONES
         jComboBoxServicio.addItem("Servicio General");
         jComboBoxServicio.addItem("Comida");
         jComboBoxServicio.addItem("Atención Al Cliente");

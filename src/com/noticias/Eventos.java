@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author 57322
  */
 public class Eventos extends javax.swing.JFrame {
-
+    //DRAWER DE MENU
     private DrawerController drawer;
     public Eventos() {
         initComponents();
@@ -62,6 +62,7 @@ public class Eventos extends javax.swing.JFrame {
                 .build();
     }
     
+    //METODOS DE INSTANCIA DEL MENU
      private void abrirReseña() {
         com.reseñas.Reseña reseña = new com.reseñas.Reseña();
         reseña.setVisible(true);
